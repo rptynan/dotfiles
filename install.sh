@@ -1,63 +1,19 @@
-#/bin/bash
-set -ex
+#!/bin/bash
 
-cores() {
-  if [[ `uname` == 'Darwin' ]]; then
-    `sysctl -n hw.ncpu`
-  else
-    `nproc`
-  fi
-}
+DIR="$( cd "$( dirname "$0" )" && pwd )"
 
-./linker.sh
-
-if [[ ! -d $HOME/.vim/bundle/neobundle.vim ]]; then
-  echo "Installing neobundle..."
-  git clone git://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
-  vim +NeoBundleInstall +qall
+echo -ne "\x1B[33m~/Install pacman-available packages listed in notes/packagelist?[yn]\x1B[39m"
+read -n 1
+echo ""
+if [[ $REPLY =~ [yY] ]]; then
+    sudo pacman -S --needed $(comm -12 <(pacman -Slq|sort) <(sort notes/packagelist) )
 fi
 
-if ! type -t chruby > /dev/null 2>&1; then
-  (
-    git clone git@github.com:postmodern/chruby.git /tmp/chruby-latest
-    cd /tmp/chruby-latest
-    sudo make install
-    rm -rf /tmp/chruby-latest
-  )
+echo -ne "\x1B[33m~/Link all files in bin to /usr/local/bin?[yn]\x1B[39m"
+read -n 1
+echo ""
+if [[ $REPLY =~ [yY] ]]; then
+    for file in $(ls bin); do
+        sudo ln -s `pwd`/bin/$file /usr/local/bin/$file
+    done
 fi
-
-if ! type -t ruby-install > /dev/null 2>&1; then
-  (
-    git clone git@github.com:postmodern/ruby-install.git /tmp/ruby-install-latest
-    sudo make install
-    rm -rf /tmp/ruby-install-latest
-  )
-fi
-
-if ! vim --version | grep -q "+ruby"; then
-  echo "Installing Vim 7.4 with Ruby support..."
-  (
-    cd /tmp
-    source /usr/local/share/chruby/chruby.sh 
-    ruby --version
-
-    wget "ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2"
-    tar xjf "vim-7.4.tar.bz2"
-    cd vim*
-    ./configure --enable-rubyinterp
-    make --jobs 4
-    sudo make install
-  )
-
-  # Refresh links
-  hash -r
-fi
-
-echo "Compiling commandt..."
-(
-  cd $HOME/.vim/bundle/Command-T/ruby/command-t
-  source /usr/local/share/chruby/chruby.sh 
-  ruby extconf.rb
-  make clean
-  make
-)
