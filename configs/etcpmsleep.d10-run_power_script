@@ -1,0 +1,25 @@
+#!/bin/sh
+# last update: 27 August 14
+# from http://xps13-9333.appspot.com/
+
+supply=`cat /sys/class/power_supply/ADP0/online`
+if [ $supply -eq 0 ]; then
+	battery=true
+else
+	battery=false
+fi
+
+white_noise_fix() {
+	echo 0 > /sys/module/snd_hda_intel/parameters/power_save
+	/usr/local/bin/white_noise_fix.py 2> /dev/null
+}
+
+kernel_version=$(uname -r | cut -c3-4)
+
+case "$1" in
+  resume|thaw) /etc/pm/power.d/10-power_script $battery
+               if [ "$kernel_version" -lt 16 ]; then
+                   white_noise_fix
+               fi
+  ;;
+esac
