@@ -1,0 +1,8 @@
+#!/bin/bash
+#systemctl suspend
+
+level=`cat /sys/class/power_supply/BAT0/capacity`
+
+if [[ ! -z $level ]] && (( $level >= 0 )) && (( $level <= 5 )); then
+    /usr/sbin/systemctl suspend
+fi

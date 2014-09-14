@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+# Check spelling of argument string using aspell
+echo $1 | aspell -a
