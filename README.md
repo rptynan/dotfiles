@@ -1,7 +1,6 @@
 # Rptynan's Dotfiles
 
-Dotfiles I have used and tweaked for the past couple of years. They're simple
-and optimized for a 13" laptop and somewhat stolen from @Sirupsen.
+Dotfiles I use. They're simple and optimized for a 13" laptop and somewhat stolen from @Sirupsen.
 
 ## Setup
 

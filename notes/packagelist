@@ -1,0 +1,44 @@
+# List of packages I usually have to install
+# Used by install.sh to install the third list
+# Comment out packages with # to not install
+
+# From aur
+package-query
+spotify
+yaourt
+
+# From elsewhere
+pretzo
+
+# From arch repos
+aspell-en
+autocutsel
+chromium
+chromium-pepper-flash
+conky
+dmenu
+eog
+firefox
+gimp
+git
+gvim
+i3-wm
+jre8-openjdk
+libreoffice-fresh
+linux-headers
+lxappearance
+network-manager-applet
+networkmanager
+ntfs-3g
+pm-utils
+powertop
+rxvt-unicode
+slim
+thunar
+thunar-archive-plugin
+thunar-volman
+thunderbird
+vlc
+wqy-zenhei
+xclip
+zsh
