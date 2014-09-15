@@ -1,50 +1,54 @@
-"""General
+""" General
 
-""Appearance
-:syntax enable
-:set t_Co=256
-"solarized
-:set background=dark
-:colorscheme solarized
-"seoul256
-"let g:seoul256_background = 233
-":colorscheme seoul256
-"grb256
-":set background=dark
-":colorscheme grb256
+"" Appearance
+syntax enable
+set t_Co=256
+set background=dark     " Dark solarized
+colorscheme solarized
 
-""Whitespace
-:set autoindent
-:set tabstop=4
-:set shiftwidth=4
-:set expandtab
-:set listchars=tab:\ \ ,trail:·
-:set list
-:highlight SpecialKey ctermfg=66 guifg=#649A9A
+"" Whitespace
+set expandtab           " Tabs consist of spaces
+set tabstop=4           " Tabs are four spaces
+set shiftwidth=4        " Tabs appear as four spaces
+set softtabstop=4       " Treats Tabs like normal, but they consist of spaces
+set listchars=tab:\ \ ,trail:·                  " These lines highlight
+set list                                        " various trailing
+highlight SpecialKey ctermfg=66 guifg=#649A9A   " whitespace characters
 
-""Mapping
+"" Behaviour
+set incsearch           " Search as you type
+set ignorecase          " Required for smartcase
+set smartcase           " Case sensitive when uppercase is present
+set autoindent          " Better auto-indenting
+set smartindent         " with these two on
+set relativenumber      " So good, just so good, try it
+
+"" Misc
+set history=100
+
+
+
+""" Mapping
+
+"" No more shift every second keystroke
 nnoremap ; :
-"nnoremap : ;
 
-""Misc
-:set relativenumber
+"" Sane behaviour on long lines, stolen from @Sirupsen
+nmap k gk
+nmap j gj
+noremap H ^
+noremap L $
 
 
 
-"""Set syntax hightlighting for strange files
+""" Set syntax hightlighting for strange filetypes
 autocmd! BufNewFile,BufRead *.ino setlocal ft=cpp
 autocmd! BufNewFile,BufRead *.scad setlocal ft=cpp
 autocmd! BufNewFile,BufRead *.md setlocal ft=markdown
 
 
 
-"""Insert one character command
-":nnoremap s :exec "normal i".nr2char(getchar())."\e"<CR>
-":nnoremap S :exec "normal a".nr2char(getchar())."\e"<CR>
-
-
-
-"""LaTeX support
+""" LaTeX support
 filetype plugin indent on
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
