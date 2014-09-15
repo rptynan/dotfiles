@@ -20,5 +20,3 @@
   rebase = true
 [hub]
   protocol = ssh
-[init]
-  templatedir = ~/.git_template
