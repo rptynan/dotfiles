@@ -13,12 +13,12 @@ for file in home/.[^.]*; do
 
   if [[ -h $target && ($(readlink $target) == $path)]]; then
     echo -e "\x1B[90m~/$base is symlinked to your dotfiles.\x1B[39m"
-  elif [[ -f $target && $(md5 $path) == $(md5 $target) ]]; then
+  elif [[ -f $target && $(md5sum $path) == $(md5sum $target) ]]; then
     echo -e "\x1B[32m~/$base exists and was identical to your dotfile.  Overriding with symlink.\x1B[39m"
     symlink $path $target
   elif [[ -a $target ]]; then
-    read -p "\x1B[33m~/$base exists and differs from your dotfile. Override?  [yn]\x1B[39m" -n 1
-
+    echo -en "\x1B[33m~/$base exists and differs from your dotfile. Override?  [yn]\x1B[39m"
+    read -n 1; echo ""
     if [[ $REPLY =~ [yY]* ]]; then
       symlink $path $target
     fi
