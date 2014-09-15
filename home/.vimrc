@@ -1,10 +1,14 @@
 """ General
 
+"" First
+set nocompatible
+
 "" Appearance
 syntax enable
 set t_Co=256
 set background=dark     " Dark solarized
 colorscheme solarized
+set colorcolumn=80      " Highlight 80th column
 
 "" Whitespace
 set expandtab           " Tabs consist of spaces

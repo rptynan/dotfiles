@@ -1,9 +1,9 @@
 # List of packages I usually have to install
 # Used by install.sh to install the third list
-# Comment out packages with # to not install
 
 # From aur
 package-query
+printrun-git
 spotify
 yaourt
 
@@ -11,6 +11,7 @@ yaourt
 pretzo
 
 # From arch repos
+# Comment out packages with # to not install with install.sh
 aspell-en
 autocutsel
 chromium
@@ -30,9 +31,11 @@ lxappearance
 network-manager-applet
 networkmanager
 ntfs-3g
+openscad
 pm-utils
 powertop
 rxvt-unicode
+slic3r-bin
 slim
 thunar
 thunar-archive-plugin
