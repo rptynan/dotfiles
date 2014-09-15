@@ -1,9 +1,9 @@
-# Sirupsen's Dotfiles
+# Rptynan's Dotfiles
 
 Dotfiles I have used and tweaked for the past couple of years. They're simple
-and optimized for a 13" laptop.
+and optimized for a 13" laptop and somewhat stolen from @Sirupsen.
 
-# Setup
+## Setup
 
 <table>
   <tr>
@@ -12,36 +12,28 @@ and optimized for a 13" laptop.
     <th>Shell</th>
     <th>Editor</th>
     <th>Version control</th>
-    <th>Multiplexer</th>
+    <th>Window Manager</th>
     <th>Font</th>
   </tr>
   <tr>
-    <td>Retina Macbook 13"</td>
-    <td>Terminal</td>
-    <td>bash</td>
+    <td>Dell Xps 13</td>
+    <td>URxvt</td>
+    <td>zsh with <a href="https://github.com/sorin-ionescu/prezto">prezto</a></td>
     <td>vim</td>
     <td>git</td>
-    <td>tmux</td>
-    <td><a href="http://www.levien.com/type/myfonts/inconsolata.html">Inconsolata</a> 14pt</td>
+    <td>i3</td>
+    <td><a href="http://www.levien.com/type/myfonts/inconsolata.html">Inconsolata</a></td>
   </tr>
 </table>
 
-# Installing
+## Installing
 
-I use `linker.sh` to clone and symlink my dotfiles across machines. Invoke it to
-symlink the dotfiles. It will prompt to override if the files already exist. Run
-`:NeoBundleInstall` in Vim to clone down my Vim plugins.
+`linker.sh` will symlink all files the files in `home` to your actual home directory. Invoke it to symlink the dotfiles. It will prompt to override if the files already exist.
 
-# Screenshots
+`install.sh` takes the list of packages from `notes/packagelist` and installs any which are available from the official Arch Linux repos with pacman. It then will symlink any files in `bin` to `/usr/local/bin` (which is in your `PATH`). The script prompts for both.
 
-Clean iTerm 2 in `vim`:
+## Directories
 
-![](http://i.imgur.com/dCCtqGy.png)
-
-Blank `bash`, only shows current dir, about as complicated the prompt gets.
-
-![](http://i.imgur.com/yLrooPJ.png)
-
-iTerm 2 fullscreen `tmux` hacking session:
-
-![](http://i.imgur.com/Xfr6tbI.png)
+- `bin` and `home` are as said above.
+- `notes` contains some information on my setup.
+- `configs` are config files for different packages in linux which I've heavily editted and aren't kept in my home directory.
