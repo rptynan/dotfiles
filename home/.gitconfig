@@ -1,6 +1,6 @@
 [user]
-  name = Simon Eskildsen
-  email = sirup@sirupsen.com
+  name = Richard Tynan
+  email = rptynan@hotmail.com
 [color]
   branch = auto
   diff = auto
@@ -20,7 +20,5 @@
   rebase = true
 [hub]
   protocol = ssh
-[credential]
-  helper = osxkeychain
 [init]
   templatedir = ~/.git_template
