@@ -43,6 +43,10 @@ nmap j gj
 noremap H ^
 noremap L $
 
+"" For inserting to and from the system clipboard quickly
+nnoremap <C-y> "*y
+nnoremap <C-i> "*p
+
 
 
 """ Set syntax hightlighting for strange filetypes
