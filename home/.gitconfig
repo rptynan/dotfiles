@@ -1,6 +1,6 @@
 [user]
   name = Richard Tynan
-  email = rptynan@hotmail.com
+  email = richard@tynan.me
 [credential]
   helper = cache --timeout=3600
 [color]
