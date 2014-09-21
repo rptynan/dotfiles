@@ -4,7 +4,8 @@ plug_in=`cat /sys/class/power_supply/ADP0/online`
 
 level=`cat /sys/class/power_supply/BAT0/capacity`
 
-if [[ plug_in == '0' ]] && [[ ! -z $level ]] &&
+if [[ $plug_in == '0' ]] && [[ ! -z $level ]] && \
     (( $level >= 0 )) && (( $level <= 5 )); then
+    echo pooop
     /usr/sbin/systemctl suspend
 fi
