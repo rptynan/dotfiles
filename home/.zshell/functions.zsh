@@ -4,6 +4,12 @@ function spellcheck() {
     echo $1 | aspell -a
 }
 
+function load-vbox-modules() {
+    for i in "vboxdrv" "vboxnetflt" "vboxnetpci" "vboxnetadp"; do
+        sudo modprobe $i
+    done
+}
+
 function pacman-remove-orphans() {
     if [[ ! -n $(pacman -Qdt) ]]; then
         echo "No orphans to remove."
