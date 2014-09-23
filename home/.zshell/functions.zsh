@@ -5,7 +5,7 @@ function spellcheck() {
 }
 
 function load-vbox-modules() {
-    for i in "vboxdrv" "vboxnetflt" "vboxnetpci" "vboxnetadp"; do
+    for i in "vboxdrv" "vboxnetflt" "vboxpci" "vboxnetadp"; do
         sudo modprobe $i
     done
 }
