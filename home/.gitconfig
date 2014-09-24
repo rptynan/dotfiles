@@ -13,6 +13,7 @@
   tool = vimdiff
 [core]
   editor = /usr/bin/vim
+  excludesfile = ~/.global_gitignore
 [push]
   default = current
 [pull]
