@@ -11,5 +11,7 @@ export VISUAL="vim"
 export TERM="xterm-256color"
 
 # Run at start
-fortune
-
+if (( $+commands[fortune] )); then
+  fortune -a
+  print
+fi
