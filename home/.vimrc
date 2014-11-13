@@ -26,6 +26,7 @@ set smartcase           " Case sensitive when uppercase is present
 set autoindent          " Better auto-indenting
 set smartindent         " with these two on
 set relativenumber      " So good, just so good, try it
+set number              " Doesn't replace relnum
 
 "" Misc
 set history=100
