@@ -30,4 +30,10 @@ autocutsel -selection PRIMARY -fork &
 # Swap Caps Lock and Escape
 setxkbmap -option caps:escape
 
+# Set Chromium to open with touch screen enabled (xinput list to find id)
+#export CHROMIUM_FLAGS="--touch-devices=9"
+
+# Set power management on wifi card off (makes it more stable for some reason)
+#sudo iw wlp2s0 set power_save off
+
 exec i3

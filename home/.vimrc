@@ -53,12 +53,21 @@ nnoremap <C-i> "*p
 """ Set syntax hightlighting for strange filetypes
 autocmd! BufNewFile,BufRead *.ino setlocal ft=cpp
 autocmd! BufNewFile,BufRead *.scad setlocal ft=cpp
-autocmd! BufNewFile,BufRead *.md setlocal ft=markdown
 
 
 
 """ LaTeX support
+
+"" Necessary
 filetype plugin indent on
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
+
+"" Compile to pdf by default
+:let g:Tex_DefaultTargetFormat='pdf'
+
+"" Sane keybindings
+nmap <F11> \lv
+map <F12> :w <Bar> normal \ll
+
