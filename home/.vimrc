@@ -48,6 +48,9 @@ noremap L $
 nnoremap <C-y> "*y
 nnoremap <C-i> "*p
 
+"" For clearing a line *cough* whitespace
+map \ 0d$
+
 
 
 """ Set syntax hightlighting for strange filetypes
@@ -69,5 +72,22 @@ set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/afte
 
 "" Sane keybindings
 nmap <F11> \lv
-map <F12> :w <Bar> normal \ll
+map <F12> :w <Bar> normal \ll<CR>
 
+
+
+""" Syntastic supprt
+
+"" Newbie defaults
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"" Nicer jumps
+nmap <F10> :lnext<CR>
+nmap <F9> :lprev<CR>
