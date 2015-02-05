@@ -59,6 +59,11 @@ autocmd! BufNewFile,BufRead *.scad setlocal ft=cpp
 
 
 
+""" Pathogen
+execute pathogen#infect()
+
+
+
 """ LaTeX support
 
 "" Necessary

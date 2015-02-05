@@ -17,3 +17,15 @@ if [[ $REPLY =~ [yY] ]]; then
         sudo ln -s `pwd`/bin/$file /usr/local/bin/$file
     done
 fi
+
+echo -ne "\x1B[33m~/Install pathogen and syntastic?[yn]\x1B[39m"
+read -n 1
+echo ""
+if [[ $REPLY =~ [yY] ]]; then
+    # Pathogen
+    mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+        curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+    # Syntastic
+    cd ~/.vim/bundle && \
+        git clone https://github.com/scrooloose/syntastic.git
+fi
