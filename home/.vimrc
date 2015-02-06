@@ -59,8 +59,22 @@ autocmd! BufNewFile,BufRead *.scad setlocal ft=cpp
 
 
 
-""" Pathogen
-execute pathogen#infect()
+""" NeoBundle support
+
+"" Necessary
+set runtimepath+=/home/ash/.vim/bundle/neobundle.vim/
+call neobundle#begin(expand('/home/ash/.vim/bundle'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+"" List of plugins to install and keep
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tpope/vim-commentary'
+NeoBundle 'altercation/vim-colors-solarized'
+
+"" Necessary
+call neobundle#end()
+filetype plugin indent on
+NeoBundleCheck
 
 
 
@@ -70,7 +84,7 @@ execute pathogen#infect()
 filetype plugin indent on
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
-set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
+set runtimepath+=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
 
 "" Compile to pdf by default
 :let g:Tex_DefaultTargetFormat='pdf'
