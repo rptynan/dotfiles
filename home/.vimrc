@@ -63,7 +63,7 @@ autocmd! BufNewFile,BufRead *.scad setlocal ft=cpp
 
 "" Necessary
 set runtimepath+=~/.vim/bundle/neobundle.vim/
-call neobundle#begin(expand('/home/ash/.vim/bundle'))
+call neobundle#begin(expand('~/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 "" List of plugins to install and keep
