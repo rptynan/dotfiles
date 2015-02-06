@@ -62,7 +62,7 @@ autocmd! BufNewFile,BufRead *.scad setlocal ft=cpp
 """ NeoBundle support
 
 "" Necessary
-set runtimepath+=/home/ash/.vim/bundle/neobundle.vim/
+set runtimepath+=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('/home/ash/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
