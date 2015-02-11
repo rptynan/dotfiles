@@ -29,7 +29,8 @@ set relativenumber      " So good, just so good, try it
 set number              " Doesn't replace relnum
 
 "" Misc
-set history=100
+set history=100         " Larger history
+set tabpagemax=100      " More tabs
 
 
 
