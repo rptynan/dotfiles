@@ -2,8 +2,10 @@
 # Used by install.sh to install the third list
 
 # From aur
+otf-inconsolata-powerline-git
 package-query
 printrun-git
+python-powerline-git
 spotify
 yaourt
 
