@@ -30,6 +30,8 @@ set autoindent          " Better auto-indenting
 set smartindent         " with these two on
 set wildmenu            " <Tab> causes completion menu on commands
 set scrolloff=5         " Keeps that many lines around cursor when scrolling
+set number              " Doesn't replace relnum
+set relativenumber      " So good, just so good, try it
 
 "" Misc
 set history=100         " Larger history
@@ -39,9 +41,6 @@ set showcmd             " Show number of lines selected in visual mode
 
 
 """ Mapping
-
-"" No more shift every second keystroke (; turns out to actually be useful)
-" nnoremap ; :
 
 "" Sane behaviour on long lines, stolen from @Sirupsen
 nmap k gk
