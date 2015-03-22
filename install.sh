@@ -30,13 +30,10 @@ if [[ $REPLY =~ [yY] ]]; then
     chsh -s /bin/zsh
 fi
 
-echo -ne "\x1B[33m~/Install NeoBundle and Vim solarized colorscheme?[yn]\x1B[39m"
+echo -ne "\x1B[33m~/Install NeoBundle?[yn]\x1B[39m"
 read -n 1
 echo ""
 if [[ $REPLY =~ [yY] ]]; then
     # NeoBundle
     curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
-    # Vim solarized
-    mkdir -p ~/.vim/colors
-    cp $DIR/notes/solarized.vim ~/.vim/colors/
 fi

@@ -7,7 +7,7 @@ set nocompatible
 syntax enable
 set t_Co=256
 set background=dark     " Dark solarized
-colorscheme solarized
+"colorscheme solarized  " Put to end because of NeoBundle
 set colorcolumn=80      " Highlight 80th column
 set relativenumber      " So good, just so good, try it
 set number              " Doesn't replace relnum
@@ -120,3 +120,8 @@ let g:syntastic_check_on_wq = 0
 "" Nicer jumps
 nmap <F10> :lnext<CR>
 nmap <F9> :lprev<CR>
+
+
+
+""" Needs to go at the end
+colorscheme solarized
