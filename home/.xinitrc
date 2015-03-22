@@ -31,9 +31,13 @@ autocutsel -selection PRIMARY -fork &
 setxkbmap -option caps:escape
 
 # Set Chromium to open with touch screen enabled (xinput list to find id)
-#export CHROMIUM_FLAGS="--touch-devices=9"
+# export CHROMIUM_FLAGS="--touch-devices=9"
 
 # Set power management on wifi card off (makes it more stable for some reason)
-#sudo iw wlp2s0 set power_save off
+# sudo iw wlp2s0 set power_save off
 
+# Set environmental variable to show i3 is running
+export DESKTOP_SESSION="i3"
+
+# Run i3
 exec i3

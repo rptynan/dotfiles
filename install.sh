@@ -26,6 +26,7 @@ if [[ $REPLY =~ [yY] ]]; then
     touch ~/.cache/zsh/dirs
     zsh -c "git clone --recursive https://github.com/sorin-ionescu/prezto.git \
             \"${ZDOTDIR:-$HOME}/.zprezto\""
+    echo -e "\nChanging default shell to zsh"
     chsh -s /bin/zsh
 fi
 
@@ -36,5 +37,6 @@ if [[ $REPLY =~ [yY] ]]; then
     # NeoBundle
     curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
     # Vim solarized
-    cp $DIR/notes/solarized.vim ~/.vim/colors
+    mkdir -p ~/.vim/colors
+    cp $DIR/notes/solarized.vim ~/.vim/colors/
 fi
