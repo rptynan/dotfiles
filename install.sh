@@ -18,6 +18,17 @@ if [[ $REPLY =~ [yY] ]]; then
     done
 fi
 
+echo -ne "\x1B[33m~/Install prezto?[yn]\x1B[39m"
+read -n 1
+echo ""
+if [[ $REPLY =~ [yY] ]]; then
+    mkdir -p ~/.cache/zsh
+    touch ~/.cache/zsh/dirs
+    zsh -c "git clone --recursive https://github.com/sorin-ionescu/prezto.git \
+            \"${ZDOTDIR:-$HOME}/.zprezto\""
+    chsh -s /bin/zsh
+fi
+
 echo -ne "\x1B[33m~/Install NeoBundle and Vim solarized colorscheme?[yn]\x1B[39m"
 read -n 1
 echo ""
