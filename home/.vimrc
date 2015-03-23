@@ -108,9 +108,11 @@ map <F12> :w <Bar> normal \ll<CR>
 """ Syntastic supprt
 
 "" Newbie defaults
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+if has("Syntastic")
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+endif
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
