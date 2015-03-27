@@ -32,7 +32,9 @@ else
     echo -ne "\x1B[33m~/Update prezto?[yn]\x1B[39m"
     read -n 1
     echo ""
-    zsh -c "cd ~/.zprezto && git pull && git submodule update --init --recursive"
+    if [[ $REPLY =~ [yY] ]]; then
+        zsh -c "cd ~/.zprezto && git pull && git submodule update --init --recursive"
+    fi
 fi
 
 echo -ne "\x1B[33m~/Install NeoBundle?[yn]\x1B[39m"
