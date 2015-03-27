@@ -55,6 +55,9 @@ nnoremap <C-i> "*p
 "" For clearing a line *cough* whitespace
 map \ 0d$
 
+"" Set folding when needed
+nmap <F6> :setlocal foldmethod=indent<CR>
+
 
 
 """ Set syntax hightlighting for strange filetypes
@@ -119,9 +122,13 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-"" Nicer jumps
+"" Mappings
+" Close the location window
+nmap <F7> :lclose<CR>
+" Nicer jumps, jumps to the prev, selected and next.
+nmap <F8> :lprev<CR>
+nmap <F9> :ll<CR>
 nmap <F10> :lnext<CR>
-nmap <F9> :lprev<CR>
 
 
 
