@@ -130,6 +130,9 @@ nmap <F8> :lprev<CR>
 nmap <F9> :ll<CR>
 nmap <F10> :lnext<CR>
 
+"" Options
+let syntastic_cpp_compiler_options = '-std=c++11'
+
 
 
 """ Needs to go at the end
