@@ -12,7 +12,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 # Set DPI
-xrandr --dpi 165
+xrandr --dpi 166
 
 # Disable bell
 xset -b
