@@ -194,3 +194,4 @@ bindsym Mod4+Shift+Return exec i3-sensible-terminal -cd "/home/ash/Code/"
 bindsym Mod4+q kill
 bindsym Mod4+Shift+minus move scratchpad
 bindsym Mod4+minus scratchpad show
+bindsym Mod4+Shift+g move workspace to output left

@@ -1,16 +1,29 @@
 #!/bin/sh
-DPI=130
+Laptop_DPI=166
+Monitor_DPI=130
 
-# Screen setup
-xrandr --output HDMI1 --dpi $DPI --mode 1920x1080 --pos 0x0 --rotate normal \
-       --output eDP1 --mode 1920x1080 --pos 1920x0 --rotate normal \
-       --output DP1 --off \
-       --output VIRTUAL1 --off
+if [[ $1 ]]; then
+    # Monitor unplugged, reset setup everything
+    xrandr --dpi $Laptop_DPI \
+           --output HDMI1 --off \
+           --output eDP1 --mode 1920x1080 --pos 0x0 --rotate normal \
+           --output DP1 --off \
+           --output VIRTUAL1 --off
+    # Reset DPI
+    echo "Xft.dpi: $Laptop_DPI" | xrdb -override
+else
+    # Screen setup
+    xrandr --dpi $Monitor_DPI \
+           --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal \
+           --output eDP1 --mode 1920x1080 --pos 1920x0 --rotate normal \
+           --output DP1 --off \
+           --output VIRTUAL1 --off
 
-# Overwrite the X resource for DPI (not persistent)
-echo "Xft.dpi: $DPI" | xrdb -override
+    # Overwrite the X resource for DPI (not persistent)
+    echo "Xft.dpi: $Monitor_DPI" | xrdb -override
 
-# Map the touch screen to just it's own screen (ie, if there's a monitor, don't
-# include that in the mapping)
-SCREEN_ID=$(xinput --list | grep -i "touch screen" | sed 's/.*id=\([0-9]*\).*/\1/')
-xinput --map-to-output $SCREEN_ID eDP1
+    # Map the touch screen to just it's own screen (ie, if there's a monitor, don't
+    # include that in the mapping)
+    SCREEN_ID=$(xinput --list | grep -i "touch screen" | sed 's/.*id=\([0-9]*\).*/\1/')
+    xinput --map-to-output $SCREEN_ID eDP1
+fi
