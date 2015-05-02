@@ -189,6 +189,8 @@ bindsym Mod4+o exec thunderbird
 bindsym Mod4+p exec thunar
 bindsym Mod4+y exec gnome-screenshot
 bindsym Mod4+Shift+Return exec i3-sensible-terminal -cd "/home/ash/Code/"
+bindsym Mod4+u exec spotify
+bindsym Mod4+Shift+u exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 
 ###########I3_CUSTOM_KEYBINDINGS########
 bindsym Mod4+q kill
