@@ -18,12 +18,11 @@ else
            --output eDP1 --mode 1920x1080 --pos 1920x0 --rotate normal \
            --output DP1 --off \
            --output VIRTUAL1 --off
-
     # Overwrite the X resource for DPI (not persistent)
     echo "Xft.dpi: $Monitor_DPI" | xrdb -override
-
-    # Map the touch screen to just it's own screen (ie, if there's a monitor, don't
-    # include that in the mapping)
-    SCREEN_ID=$(xinput --list | grep -i "touch screen" | sed 's/.*id=\([0-9]*\).*/\1/')
-    xinput --map-to-output $SCREEN_ID eDP1
 fi
+
+# Map the touch screen to just it's own screen (ie, if there's a monitor, don't
+# include that in the mapping). Should be run no matter what.
+SCREEN_ID=$(xinput --list | grep -i "touch screen" | sed 's/.*id=\([0-9]*\).*/\1/')
+xinput --map-to-output $SCREEN_ID eDP1

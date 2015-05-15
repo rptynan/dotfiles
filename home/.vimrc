@@ -33,6 +33,7 @@ set wildmenu            " <Tab> causes completion menu on commands
 set scrolloff=5         " Keeps that many lines around cursor when scrolling
 set number              " Doesn't replace relnum
 set relativenumber      " So good, just so good, try it
+set mouse=a             " Use a mouse normally in vim, handy
 
 "" Misc
 set history=100         " Larger history
