@@ -1,6 +1,8 @@
 #!/bin/sh
-Laptop_DPI=166
-Monitor_DPI=130
+# Actual is ~166
+Laptop_DPI=130
+# Actual is ~96
+Monitor_DPI=110
 
 if [[ $1 ]]; then
     # Monitor unplugged, reset setup everything

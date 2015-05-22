@@ -10,8 +10,8 @@ Xft.hintstyle:  hintfull
 
 ! URxvt ------------------------------------------
 
-URxvt*font:             xft:Inconsolata for Powerline:size=9.5:hinting=slight
-URxvt*boldFont:         xft:Inconsolata for Powerline:bold:size=9.5:hinting=slight
+URxvt*font:             xft:Inconsolata for Powerline:size=10.2:hinting=slight
+URxvt*boldFont:         xft:Inconsolata for Powerline:bold:size=10.2:hinting=slight
 URxvt*geometry:         112x28
 URxvt*scrollBar:        false
 URxvt*perl-lib:         /usr/lib/urxvt/perl/
