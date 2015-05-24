@@ -76,8 +76,8 @@ call neobundle#begin(expand('~/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 "" List of plugins to install and keep
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-commentary'
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'altercation/vim-colors-solarized'
 
 "" Necessary
@@ -90,6 +90,11 @@ NeoBundleCheck
 """ Powerline support
 let $PYTHONPATH='/usr/lib/python3.4/site-packages'
 set laststatus=2
+
+
+
+""" Custom Commentary things
+autocmd FileType sml set commentstring=\(\*\ %s\ \*\)
 
 
 

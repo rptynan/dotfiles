@@ -15,14 +15,14 @@ function pacman-remove-orphans() {
         echo "No orphans to remove."
     else
         sudo pacman -Rns $(pacman -Qdtq)
-     fi
+    fi
 }
 
 function swap() {
     local TMPFILE=tmp.$$
-	mv "$1" $TMPFILE
-	mv "$2" "$1"
-	mv $TMPFILE "$2"
+    mv "$1" $TMPFILE
+    mv "$2" "$1"
+    mv $TMPFILE "$2"
 }
 
 function ListAllCommands {
