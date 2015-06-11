@@ -1,8 +1,8 @@
 #!/bin/sh
 # Actual is ~166
-Laptop_DPI=130
+Laptop_DPI=166
 # Actual is ~96
-Monitor_DPI=110
+Monitor_DPI=96
 
 if [[ $1 ]]; then
     # Monitor unplugged, reset setup everything
@@ -21,7 +21,8 @@ else
            --output DP1 --off \
            --output VIRTUAL1 --off
     # Overwrite the X resource for DPI (not persistent)
-    echo "Xft.dpi: $Monitor_DPI" | xrdb -override
+    # Not doing this seems to make the fonts a much more reasonable size
+    # echo "Xft.dpi: $Monitor_DPI" | xrdb -override
 fi
 
 # Map the touch screen to just it's own screen (ie, if there's a monitor, don't
