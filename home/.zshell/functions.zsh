@@ -1,5 +1,10 @@
 #!/bin/zsh
 
+function clipit() {
+    LC=$(history -1 | cut -d ' ' -f 4-)
+    echo -n $LC | xclip
+}
+
 function spellcheck() {
     echo $1 | aspell -a
 }
