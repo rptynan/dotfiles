@@ -41,7 +41,6 @@ set tabpagemax=100      " More tabs
 set showcmd             " Show number of lines selected in visual mode
 
 
-
 """ Mapping
 
 "" Sane behaviour on long lines, stolen from @Sirupsen
@@ -55,17 +54,15 @@ nnoremap <C-y> "*y
 nnoremap <C-i> "*p
 
 "" For clearing a line *cough* whitespace
-map \ 0d$
+map <Leader><Leader> 0d$
 
 "" Set folding when needed
 nmap <F6> :setlocal foldmethod=indent<CR>
 
 
-
 """ Set syntax hightlighting for strange filetypes
 autocmd! BufNewFile,BufRead *.ino setlocal ft=cpp
 autocmd! BufNewFile,BufRead *.scad setlocal ft=cpp
-
 
 
 """ NeoBundle support
@@ -79,6 +76,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'majutsushi/tagbar'
 
 "" Necessary
 call neobundle#end()
@@ -86,16 +84,13 @@ filetype plugin indent on
 NeoBundleCheck
 
 
-
 """ Powerline support
 let $PYTHONPATH='/usr/lib/python3.4/site-packages'
 set laststatus=2
 
 
-
 """ Custom Commentary things
 autocmd FileType sml set commentstring=\(\*\ %s\ \*\)
-
 
 
 """ LaTeX support
@@ -113,7 +108,6 @@ nmap <F11> \lv
 map <F12> :w <Bar> normal \ll<CR>
 
 
-
 """ Syntastic supprt
 
 "" Newbie defaults
@@ -125,12 +119,12 @@ endif
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 "" Mappings
-" Close the location window
-nmap <F7> :lclose<CR>
+" Toggle it on an off
+nmap <F7> :SyntasticToggleMode<CR>
 " Nicer jumps, jumps to the prev, selected and next.
 nmap <F8> :lprev<CR>
 nmap <F9> :ll<CR>
@@ -139,6 +133,9 @@ nmap <F10> :lnext<CR>
 "" Options
 let syntastic_cpp_compiler_options = '-std=c++11'
 
+
+""" Tagbar
+map <leader>b :Tagbar<CR>
 
 
 """ Needs to go at the end
