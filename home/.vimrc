@@ -59,6 +59,9 @@ map <Leader><Leader> 0d$
 "" Set folding when needed
 nmap <F6> :setlocal foldmethod=indent<CR>
 
+"" For easier hexmode
+nmap <F5> :Hexmode<CR>
+
 
 """ Set syntax hightlighting for strange filetypes
 autocmd! BufNewFile,BufRead *.ino setlocal ft=cpp
@@ -77,6 +80,7 @@ NeoBundle 'tpope/vim-commentary'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'majutsushi/tagbar'
+NeoBundle 'fidian/hexmode'
 
 "" Necessary
 call neobundle#end()
