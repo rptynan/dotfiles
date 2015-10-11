@@ -15,6 +15,9 @@ if (( $+commands[fortune] )); then
   fortune -a
   print
 fi
+if [[ -z "$(pgrep xflux)" ]]; then
+    xflux
+fi
 
 # Shortcut to suspend half-typed command so I can run another
 fancy-ctrl-z () {
