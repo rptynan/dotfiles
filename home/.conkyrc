@@ -72,13 +72,12 @@ eth0 ${if_up eth0}${addr eth0}${endif} | \
 # Wireless status
 wlp2s0 ${if_up wlp2s0}${addr wlp2s0}${endif} | \
 # CPU stats
-CPU ${cpu cpu1}% ${freq_g 1}GHz ${exec sensors | grep "Core 0"|awk '{print $3}'} | \
+CPU ${cpu cpu1}% ${freq_g 1}GHz${hwmon 2 temp 1}°C | \
 # RAM in use
 RAM ${memperc}% | \
 # Battery %
 BATT ${battery BAT0} ${if_match ${battery_percent BAT0} <= 5}${exec low-battery-check}${endif}${battery_time BAT0} | \
 # Time
 ${time %a %d.%m.%y} ${time %H:%M} | \
-${tztime Australia/Brisbane %H:%M}${font} | \
 # Volume %
-Vol: ${exec amixer get Master -M | grep -oE "[[:digit:]]*%"} 
+Vol: ${exec pactl list sinks | grep "Volume" | head -n1 | cut -d ' ' -f 6}
