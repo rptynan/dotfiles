@@ -80,4 +80,4 @@ BATT ${battery BAT0} ${if_match ${battery_percent BAT0} <= 5}${exec low-battery-
 # Time
 ${time %a %d.%m.%y} ${time %H:%M} | \
 # Volume %
-Vol: ${exec pactl list sinks | grep "Volume" | head -n1 | cut -d ' ' -f 6}
+Vol: ${exec pactl list sinks | grep "Volume" | head -n1 | cut -d ' ' -f 5}

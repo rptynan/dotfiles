@@ -66,6 +66,7 @@ nmap <F5> :Hexmode<CR>
 """ Set syntax hightlighting for strange filetypes
 autocmd! BufNewFile,BufRead *.ino setlocal ft=cpp
 autocmd! BufNewFile,BufRead *.scad setlocal ft=cpp
+autocmd! BufNewFile,BufRead *.pl setlocal ft=prolog
 
 
 """ NeoBundle support
