@@ -1,3 +1,4 @@
 # from http://xps13-9333.appspot.com/
+# Call power settings script when power supply changes
 SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="0", RUN+="/etc/pm/power.d/10-power_script true"
 SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="1", RUN+="/etc/pm/power.d/10-power_script false"

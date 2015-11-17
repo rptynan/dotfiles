@@ -1,6 +1,10 @@
 #!/bin/sh
 # last update: 20 August 14
 # from http://xps13-9333.appspot.com/
+#
+# Enables/Disables powersaving options on different things.
+# This should be called by a udev rule on AC/battery power change and by a
+# systemd sleep script on resume.
 
 if $1; then
     GOVERNOR=powersave
