@@ -79,5 +79,5 @@ RAM ${memperc}% | \
 BATT ${battery BAT0} ${if_match ${battery_percent BAT0} <= 5}${exec low-battery-check}${endif}${battery_time BAT0} | \
 # Time
 ${time %a %d.%m.%y} ${time %H:%M} | \
-# Volume %
-Vol: ${exec pactl list sinks | grep "Volume" | head -n1 | cut -d ' ' -f 5}
+# Volume %, if muted, display Muted, otherwise percentage
+Vol: ${exec if [[ $(pactl list sinks | grep "Mute" | head -n1 | cut -d ' ' -f 2) == "no" ]]; then pactl list sinks | grep "Volume" | head -n1 | cut -d ' ' -f 6; else echo "Muted"; fi}
