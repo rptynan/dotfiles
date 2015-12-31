@@ -3,7 +3,6 @@
 # Overwrites
 alias rm="rm -i"
 alias ls='ls --color=auto'
-alias xflux="xflux -l 53.4129 -g -8.2439"
 alias xclip="xclip -selection clipboard"
 alias sml="rlwrap sml"
 alias poly="rlwrap poly"
