@@ -1,0 +1,43 @@
+#!/bin/bash
+#
+# Fixes coil whine noise on Dell XPS 13-9333 running archlinux.
+#
+# Uses logic here https://xps13-9333.appspot.com/#electrical_noises to check
+# if keyboard backlight and audio codec power save are in a state which would
+# cause noise and if so, toggles the audio codec power saving setting.
+#
+# It uses inotify to check for the audio powersaving, but this doesn't work for
+# the keyboard backlight, so that needs to be run some other way. Unfortunately I
+# don't see an easy way to do this automatically other than poll the KEY_BR
+# file, so for now I've just mapped a key combination in i3 to run this and
+# have to remember to do that whenever I change the keyboard brightness.
+# Ideally I would map the keyboard brightness fn combination to run this, but
+# because that's special it's not sent to the OS (I think).
+#
+# If an argument is passed, this only runs once.
+
+
+AUDIO_PS=/sys/module/snd_hda_intel/parameters/power_save
+KEYB_BR=/sys/class/leds/dell::kbd_backlight/brightness
+
+function check {
+    audio=$(cat $AUDIO_PS)
+    keyb=$(cat $KEYB_BR)
+    case "$audio$keyb" in
+        # Audio power saving on and keyboard backlight on full
+        12) echo 0 > $AUDIO_PS ;;
+        # Both off
+        00) echo 1 > $AUDIO_PS ;;
+        # Otherwise nothing
+        *) ;;
+    esac
+}
+
+if [[ $1 ]]; then
+    check;
+else
+    check;
+    while inotifywait $AUDIO_PS; do
+        check;
+    done
+fi

@@ -27,8 +27,13 @@ feh --bg-fill --randomize ~/.wallpapers/*
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 
-# Swap Caps Lock and Escape
+# Map Caps Lock to Escape
 setxkbmap -option caps:escape
+
+# Start coil whine "fix" if present
+if [[ -z "$(pgrep whine-be-gone)" ]] && hash whine-be-gone; then
+    whine-be-gone &
+fi
 
 # Set environmental variable to show i3 is running
 export DESKTOP_SESSION="i3"
