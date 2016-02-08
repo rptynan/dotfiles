@@ -195,6 +195,8 @@ bindsym Mod4+p exec thunar
 bindsym Mod4+u exec spotify
 bindsym Mod4+y exec gnome-screenshot
 bindsym Mod4+Shift+y exec gnome-screenshot --area
+bindsym Mod4+t exec leftscreen
+bindsym Mod4+Shift+t exec leftscreen d
 
 ### i3 Custom Keybindings
 bindsym Mod4+q kill
