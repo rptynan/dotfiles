@@ -152,6 +152,7 @@ bar {
     mode hide
     position bottom
     font pango:DejaVu Sans Mono 7
+    tray_output eDP1
     colors {
         background #073642
         statusline #93a1a1
