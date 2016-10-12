@@ -23,7 +23,7 @@ font pango:DejaVu Sans 7
 floating_modifier Mod4
 
 # start a terminal
-bindsym Mod4+Return exec i3-sensible-terminal
+bindsym Mod4+Return exec i3-sensible-terminal -e tmux
 
 # kill focused window
 #bindsym Mod4+Shift+q kill
@@ -173,6 +173,7 @@ client.urgent               #b58900 #002b36 #eee8d5 #586e75
 ### Autostarts
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
+exec --no-startup-id /usr/lib/notification-daemon-1.0/notification-daemon
 
 ### Volume
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle; exec pactl set-sink-mute 1 toggle; exec pactl set-sink-mute 2 toggle; exec pactl set-sink-mute 3 toggle
