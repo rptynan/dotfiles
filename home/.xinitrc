@@ -23,10 +23,6 @@ xset -b
 # Set Wallpaper
 feh --bg-fill --randomize ~/.wallpapers/*
 
-# Merge Clipboards
-autocutsel -fork &
-autocutsel -selection PRIMARY -fork &
-
 # Map Caps Lock to Escape
 setxkbmap -option caps:escape
 
