@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 # Actual is ~166
 Laptop_DPI=166
 # Actual is ~96
 Monitor_DPI=96
 
-if [[ $1 ]]; then
+if [ "$1" == "unplugged" ]; then
     # Monitor unplugged, reset setup everything
     xrandr --dpi $Laptop_DPI \
            --output HDMI1 --off \
@@ -13,8 +13,8 @@ if [[ $1 ]]; then
            --output VIRTUAL1 --off
     # Reset DPI
     echo "Xft.dpi: $Laptop_DPI" | xrdb -override
-else
-    # Screen setup
+elif [ "$1" == "left" ]; then
+    # Monitor on left
     xrandr --dpi $Monitor_DPI \
            --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal \
            --output eDP1 --mode 1920x1080 --pos 1920x0 --rotate normal \
@@ -23,9 +23,16 @@ else
     # Overwrite the X resource for DPI (not persistent)
     # Not doing this seems to make the fonts a much more reasonable size
     # echo "Xft.dpi: $Monitor_DPI" | xrdb -override
+else
+    # Monitor on right
+    xrandr --dpi $Monitor_DPI \
+           --output HDMI1 --mode 1920x1080 --pos 1920x0 --rotate normal \
+           --output eDP1 --mode 1920x1080 --pos 0x0 --rotate normal \
+           --output DP1 --off \
+           --output VIRTUAL1 --off
 fi
 
-# Map the touch screen to just it's own screen (ie, if there's a monitor, don't
+# Map the touch screen to just its own screen (ie, if there's a monitor, don't
 # include that in the mapping). Should be run no matter what.
 SCREEN_ID=$(xinput --list | grep -i "touch screen" | sed 's/.*id=\([0-9]*\).*/\1/')
 xinput --map-to-output $SCREEN_ID eDP1
