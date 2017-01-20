@@ -184,6 +184,9 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%; exec pactl set-s
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+### for Ducky keyboard (no media keys...)
+bindsym Mod4+Shift+u exec playerctl play-pause
+bindsym Mod4+Ctrl+u exec playerctl next
 
 ### Brightness
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
