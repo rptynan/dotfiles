@@ -74,7 +74,7 @@ wlp2s0 ${if_up wlp2s0}${addr wlp2s0}${endif} | \
 # CPU stats
 CPU ${cpu cpu1}% ${freq_g 1}GHz${hwmon 2 temp 1}°C | \
 # RAM in use
-RAM ${memperc}% | \
+RAM ${memperc}% ${mem}/${memmax} | \
 # Battery %
 BATT ${battery BAT0} ${if_match ${battery_percent BAT0} <= 5}${exec low-battery-check}${endif}${battery_time BAT0} | \
 # Time

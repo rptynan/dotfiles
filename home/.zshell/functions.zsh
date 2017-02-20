@@ -1,5 +1,6 @@
 #!/bin/zsh
 
+# Is what it says
 function spoofmac() {
     if [ -z "$*" ]; then
         echo "Usage: spoofmac <profile-name> <mac-address>"
@@ -16,21 +17,26 @@ function spoofmac() {
     ip link show wlp2s0 | grep "link/ether" | cut -d " " -f 6
 }
 
+# Puts last command in clipboard
 function clipit() {
-    LC=$(history -1 | cut -d ' ' -f 4-)
+    LC=$(history -1 | cut -d ' ' -f 3-)
     echo -n $LC | xclip
 }
 
+# Is what it says
 function spellcheck() {
     echo $1 | aspell -a
 }
 
+# Is what it says
 function load-vbox-modules() {
     for i in "vboxdrv" "vboxnetflt" "vboxpci" "vboxnetadp"; do
         sudo modprobe $i
     done
 }
 
+# Removes orphaned pacman packages, i.e. ones installed as a dependency which
+# now doesn't exist.
 function pacman-remove-orphans() {
     if [[ ! -n $(pacman -Qdt) ]]; then
         echo "No orphans to remove."
@@ -39,6 +45,7 @@ function pacman-remove-orphans() {
     fi
 }
 
+# Swap two files
 function swap() {
     local TMPFILE=tmp.$$
     mv "$1" $TMPFILE
@@ -46,9 +53,19 @@ function swap() {
     mv $TMPFILE "$2"
 }
 
+# Is what it says
 function ListAllCommands {
     COMMANDS=`echo -n $PATH | xargs -d : -I {} find {} -maxdepth 1 \
         -executable -type f -printf '%P\n'`
     ALIASES=`alias | cut -d '=' -f 1`
     echo "$COMMANDS"$'\n'"$ALIASES" | sort -u
+}
+
+# "Sticky" ssh, reconnects if stops, see
+# http://backreference.org/2013/04/26/ssh-auto-reconnect/
+function sssh() {
+    while true; do
+        ssh "$@"
+        [[ $? == 0 ]] && break || sleep 1
+    done
 }

@@ -28,6 +28,8 @@ function check {
         12) echo 0 > $AUDIO_PS ;;
         # Both off
         00) echo 1 > $AUDIO_PS ;;
+        # Backlight on medium, this always whines, turn it off..
+        *1) echo 0 > $KEYB_BR; echo 1 > $AUDIO_PS ;;
         # Otherwise nothing
         *) ;;
     esac
