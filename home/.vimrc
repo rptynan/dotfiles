@@ -32,6 +32,7 @@ set smartindent         " with these two on
 set wildmenu            " <Tab> causes completion menu on commands
 set scrolloff=5         " Keeps that many lines around cursor when scrolling
 set mouse=a             " Use a mouse normally in vim, handy
+set hidden              " Don't require :w if switching away from mod'd buffer
 
 "" Misc
 set history=100         " Larger history
