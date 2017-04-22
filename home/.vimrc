@@ -14,7 +14,8 @@ set number              " Doesn't replace relnum
 set cursorline          " make current line stand out
 
 "" Whitespace
-set expandtab           " Tabs consist of spaces
+" set expandtab           " Tabs consist of spaces
+set noexpandtab         " Bsd style
 set tabstop=4           " Tabs are four spaces
 set shiftwidth=4        " Tabs appear as four spaces
 set softtabstop=4       " Treats Tabs like normal, but they consist of spaces
@@ -32,6 +33,7 @@ set smartindent         " with these two on
 set wildmenu            " <Tab> causes completion menu on commands
 set scrolloff=5         " Keeps that many lines around cursor when scrolling
 set mouse=a             " Use a mouse normally in vim, handy
+set hidden
 
 "" Misc
 set history=100         " Larger history
@@ -80,6 +82,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'fidian/hexmode'
+NeoBundle 'vim-scripts/occur.vim'
 
 "" Necessary
 call neobundle#end()
@@ -113,6 +116,7 @@ map <F12> :w <Bar> normal \ll<CR>
 
 """ Syntastic supprt
 
+let g:syntastic_mode_map = { 'mode': 'passive' }
 "" Newbie defaults
 if has("Syntastic")
     set statusline+=%#warningmsg#

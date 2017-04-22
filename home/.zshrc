@@ -9,3 +9,6 @@ fi
 for file in ~/.zshell/*.zsh; do
     source $file
 done
+
+# Source envs
+source /usr/local/src/part2-dissertation-code/scripts/envs.sh
