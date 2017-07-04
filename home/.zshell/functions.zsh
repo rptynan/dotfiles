@@ -1,5 +1,25 @@
 #!/bin/zsh
 
+# Run regularly for maintenance
+function maintenance-time() {
+    sudo true
+    # Orphan packages
+    echo -e "\x1B[33mRemoving orphan packages:\x1B[39m"
+    pacman-remove-orphans
+    # Failed systemd services
+    echo -e "\x1B[33mHere's any failed services:\x1B[39m"
+    systemctl --failed --no-pager
+    # Journal errors
+    echo -e "\x1B[33mErrors from journal:\x1B[39m"
+    sudo journalctl -p 3 -xb --no-pager
+    # paccache
+    size=$(du -h /var/cache/pacman/pkg/ | tail -n 1 | tr -s " " "\t" \
+        | cut -d"	" -f 1)
+    echo -e "\x1B[33mSize of pacman cache: $size\x1B[39m"
+    sudo paccache -ruk0
+    sudo paccache -rk 1
+}
+
 # Is what it says
 function spoofmac() {
     if [ -z "$*" ]; then
