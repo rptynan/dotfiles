@@ -81,6 +81,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'fidian/hexmode'
+NeoBundle 'tpope/vim-surround'
 
 "" Necessary
 call neobundle#end()
