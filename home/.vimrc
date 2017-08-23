@@ -38,6 +38,7 @@ set hidden              " Don't require :w if switching away from mod'd buffer
 set history=100         " Larger history
 set tabpagemax=100      " More tabs
 set showcmd             " Show number of lines selected in visual mode
+set spell               " I need spellcheck
 
 
 """ Mapping
