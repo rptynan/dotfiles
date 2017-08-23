@@ -1,0 +1,23 @@
+` jumps to marker position, ' just jumps to the line.
+
+aw is a word, iw is inner word, based on w movement.
+* daw -> deletes word under cursor and whitespace following it
+* diw -> deletes word under cursor
+as and is are similar, based on sentence movements ) and (.
+ap and ip are similar, based on paragraph movements } and {.
+Similarly can be done for ", ' and `
+* ci" ->  changes contents of a string
+Also can be done for () (use ) or b), [], {} and html tags
+(use t for block, > for actual tag).
+
+vim-surround
+* cs"' -> changes " quotes to ' around cursor position.
+* cst<q> -> changes some html tags to <q> and </q>
+* cs]} -> changes square braces to curly ones
+* ds" -> deletes "
+* ysiw] -> wrap word in ]
+* yss] -> wrap line in ]
+* In visual selection S) will wrap the selection in ()
+
+quickfix
+:ll current (or indexed), :ln for next, :lp for previous.
