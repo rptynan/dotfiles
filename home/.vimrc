@@ -83,6 +83,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'fidian/hexmode'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'hhvm/vim-hack'
 
 "" Necessary
 call neobundle#end()
@@ -138,6 +139,7 @@ nmap <F10> :lnext<CR>
 
 "" Options
 let syntastic_cpp_compiler_options = '-std=c++11'
+let g:syntastic_php_checkers=['']  " vim-hack neobundle takes care of this
 
 
 """ Tagbar
