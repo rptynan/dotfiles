@@ -7,8 +7,7 @@ as and is are similar, based on sentence movements ) and (.
 ap and ip are similar, based on paragraph movements } and {.
 Similarly can be done for ", ' and `
 * ci" ->  changes contents of a string
-Also can be done for () (use ) or b), [], {} and html tags
-(use t for block, > for actual tag).
+Also can be done for () (use ) or b), [], {} and html tags (use t for block, > for actual tag).
 
 vim-surround
 * cs"' -> changes " quotes to ' around cursor position.
@@ -21,3 +20,17 @@ vim-surround
 
 quickfix
 :ll current (or indexed), :ln for next, :lp for previous.
+
+o to insert on newline, O for prev newline
+
+ctags
+Run ctags -R . from project root to create tags file.
+* C-] -> jump to definition of thing-cursor-is-on
+* C-t -> jump back up from some of the above jumps
+* :ta[g] {ident} -> jump to ident's definition, can do regex (prefix with /)
+* :tags -> show tags we've traversed
+Browsing multiple results:
+* :ts -> show list
+* :tn, :tp -> next, prev
+* :tf, :tl -> first, last
+\b runs tagbar
