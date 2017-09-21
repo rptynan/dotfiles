@@ -1,2 +1,20 @@
 Colourschemes for terminal:
 https://github.com/tomislav/osx-terminal.app-colors-solarized
+
+Terminal has /usr/local/bin/tmux new as startup command (don't run inside
+shell). Set scrollback to 0.
+https://woss.name/articles/running-tmux-in-mac-os-x-terminal/
+
+Karabiner:
+caps -> esc
+caps+x -> ctrl+opt+cmd+x
+Remap caps to esc by self and super if in combination  for all keyboards.
+http://brettterpstra.com/2017/06/15/a-hyper-key-with-karabiner-elements-full-instructions/
+Swap fn and left_control for the "Apple Internal Keyboard / Trackpad".
+
+Slate:
+Using super (cmd+ctrl+opt) and adding shift to it sometimes.
+
+On startup (users & groups, click login items):
+Textual
+Outlook
