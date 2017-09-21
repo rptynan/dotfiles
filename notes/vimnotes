@@ -34,3 +34,5 @@ Browsing multiple results:
 * :tn, :tp -> next, prev
 * :tf, :tl -> first, last
 \b runs tagbar
+
+; will repeat motions like f, t, etc.
