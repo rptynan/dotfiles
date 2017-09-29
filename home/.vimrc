@@ -12,6 +12,7 @@ set colorcolumn=80      " Highlight 80th column
 set relativenumber      " So good, just so good, try it
 set number              " Doesn't replace relnum
 set cursorline          " make current line stand out
+set hlsearch            " Highlight current search terms
 
 "" Whitespace
 set expandtab           " Tabs consist of spaces
