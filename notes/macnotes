@@ -1,9 +1,5 @@
-Colourschemes for terminal:
-https://github.com/tomislav/osx-terminal.app-colors-solarized
-
-Terminal has /usr/local/bin/tmux new as startup command (don't run inside
-shell). Set scrollback to 0.
-https://woss.name/articles/running-tmux-in-mac-os-x-terminal/
+Colourschemes for iTerm2:
+https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized
 
 Karabiner:
 caps -> esc
