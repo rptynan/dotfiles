@@ -66,10 +66,15 @@ nmap <F6> :setlocal foldmethod=indent<CR>
 nmap <F5> :Hexmode<CR>
 
 
-""" Set syntax hightlighting for strange filetypes
+""" Syntax options
+"" File types
 autocmd! BufNewFile,BufRead *.ino setlocal ft=cpp
 autocmd! BufNewFile,BufRead *.scad setlocal ft=cpp
 autocmd! BufNewFile,BufRead *.pl setlocal ft=prolog
+"" Custom Commentary things
+autocmd FileType sml set commentstring=\(\*\ %s\ \*\)
+"" Match <> brackets like {},(),etc
+set matchpairs+=<:>
 
 
 """ NeoBundle support
@@ -97,10 +102,6 @@ NeoBundleCheck
 """ Powerline support
 let $PYTHONPATH='/usr/lib/python3.4/site-packages'
 set laststatus=2
-
-
-""" Custom Commentary things
-autocmd FileType sml set commentstring=\(\*\ %s\ \*\)
 
 
 """ LaTeX support
