@@ -63,11 +63,11 @@ bind m:${hyper}       throw 1 resize
 
 ## Layouts
 # Coding
-layout Coding 'Terminal':REPEAT         ${righthalf}
+layout Coding 'iTerm2':REPEAT           ${rightwide}
 layout Coding 'Google Chrome':REPEAT    ${leftwide}
 bind 1:${hyper} layout Coding
 # SideScreen
-layout SideScreen 'Microsoft Outlook'   ${lefthalf}
+layout SideScreen 'Microsoft Outlook'   ${leftwide}
 layout SideScreen 'Textual'             ${topright}
 layout SideScreen 'Spotify'             ${bottomright}
 bind 2:${hyper} layout SideScreen
