@@ -34,3 +34,11 @@ Browsing multiple results:
 * :tn, :tp -> next, prev
 * :tf, :tl -> first, last
 \b runs tagbar
+
+; will repeat motions like f, t, etc.
+
+%< built-in variable, that resolves to the file name without extension, e.g.
+%useful for :e %<.h when dealing with C files.
+
+[{ jumps to starting { of current code block. ]} does similarly for end of code
+block. Also can use [( and ]).
