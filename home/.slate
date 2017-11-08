@@ -62,12 +62,20 @@ bind n:${hyper}       throw 0 resize
 bind m:${hyper}       throw 1 resize
 
 ## Layouts
-# Coding
-layout Coding 'iTerm2':REPEAT           ${rightwide}
-layout Coding 'Google Chrome':REPEAT    ${leftwide}
-bind 1:${hyper} layout Coding
-# SideScreen
-layout SideScreen 'Microsoft Outlook'   ${leftwide}
-layout SideScreen 'Textual'             ${topright}
-layout SideScreen 'Spotify'             ${bottomright}
-bind 2:${hyper} layout SideScreen
+# Browser:Coding wide:wide
+layout Coding1 'Google Chrome':REPEAT    ${leftwide}
+layout Coding1 'iTerm2':REPEAT           ${rightwide}
+bind 1:${hyper} layout Coding1
+# Browser:Coding wide:slim
+layout Coding2 'Google Chrome':REPEAT    ${leftwide}
+layout Coding2 'iTerm2':REPEAT           ${rightslim}
+bind 2:${hyper} layout Coding2
+# Side Screen
+layout SideScreen 'Google Chrome':REPEAT ${leftwide}
+layout SideScreen 'Microsoft Outlook'    ${leftwide}
+layout SideScreen 'Textual'              ${rightwide}
+layout SideScreen 'Spotify'              ${rightwide}
+bind 3:${hyper} layout SideScreen
+# Tab Sorting
+layout TabSort 'Google Chrome':REPEAT    push top bar-resize:screenSizeY*0.2
+bind 4:${hyper} layout TabSort
