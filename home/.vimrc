@@ -86,12 +86,12 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 "" List of plugins to install and keep
 NeoBundle 'tpope/vim-commentary'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'fidian/hexmode'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'hhvm/vim-hack'
+NeoBundle 'w0rp/ale'
 
 "" Necessary
 call neobundle#end()
@@ -119,35 +119,12 @@ nmap <F11> \lv
 map <F12> :w <Bar> normal \ll<CR>
 
 
-""" Syntastic supprt
-
-"" Newbie defaults
-if has("Syntastic")
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-endif
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-"" Mappings
-" Toggle it on an off
-nmap <F7> :SyntasticToggleMode<CR>
-" Nicer jumps, jumps to the prev, selected and next.
-nmap <F8> :lprev<CR>
-nmap <F9> :ll<CR>
-nmap <F10> :lnext<CR>
-
-"" Options
-let syntastic_cpp_compiler_options = '-std=c++11'
-let g:syntastic_php_checkers=['']  " vim-hack neobundle takes care of this
-
-
 """ Tagbar
 map <leader>b :Tagbar<CR>
+
+""" ALE
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 
 """ Needs to go at the end
