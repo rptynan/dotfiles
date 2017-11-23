@@ -92,6 +92,8 @@ NeoBundle 'fidian/hexmode'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'hhvm/vim-hack'
 NeoBundle 'w0rp/ale'
+NeoBundle 'junegunn/fzf.vim'
+source ~/.fzf/plugin/fzf.vim	" Needed by fzf.vim
 
 "" Necessary
 call neobundle#end()
@@ -122,9 +124,14 @@ map <F12> :w <Bar> normal \ll<CR>
 """ Tagbar
 map <leader>b :Tagbar<CR>
 
+
 """ ALE
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+
+""" fzf
+ab bb Buffers       " Use :bb as shorthand for :Buffers
 
 
 """ Needs to go at the end
