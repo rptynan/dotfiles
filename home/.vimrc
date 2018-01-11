@@ -65,6 +65,9 @@ nmap <F6> :setlocal foldmethod=indent<CR>
 "" For easier hexmode
 nmap <F5> :Hexmode<CR>
 
+"" Quickly toggle numbers
+map <Leader>n :set nu!<CR> :set rnu!<CR>
+
 
 """ Syntax options
 "" File types
@@ -93,7 +96,8 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'hhvm/vim-hack'
 NeoBundle 'w0rp/ale'
 NeoBundle 'junegunn/fzf.vim'
-source ~/.fzf/plugin/fzf.vim	" Needed by fzf.vim
+NeoBundle 'tpope/vim-eunuch'
+source ~/.fzf/plugin/fzf.vim    " Needed by fzf.vim
 
 "" Necessary
 call neobundle#end()
