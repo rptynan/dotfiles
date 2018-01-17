@@ -42,3 +42,14 @@ Browsing multiple results:
 
 [{ jumps to starting { of current code block. ]} does similarly for end of code
 block. Also can use [( and ]).
+
+q: opens command history editor, use it to edit commands like a normal buffer
+before hitting enter on one to run it. E.g. useful for iteratively constructing
+long regexes.
+
+In :Ex can use % to create new file.
+
+Windows stuff:
+* C-w gf -> opens file under cursor in new tab.
+* C-w H -> moves window to left half of screen. Similar for JKL.
+* C-w r -> rotates the windows in the current row, swapping their positions.

@@ -89,3 +89,9 @@ function sssh() {
         [[ $? == 0 ]] && break || sleep 1
     done
 }
+
+# Runs the last command repeatedly on changes of files ending in .$1
+wx() {
+  lastcmd=$(fc -ln -1)
+  watchman-make -p "**/*.$1" -r "$lastcmd"
+}

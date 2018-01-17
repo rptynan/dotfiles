@@ -2,6 +2,8 @@
 
 # Vim mode
 bindkey -v
+# Edit commands in full vim by doing Esc then v
+bindkey -M vicmd v edit-command-line
 
 # Set vim as editor
 export EDITOR="vim"
