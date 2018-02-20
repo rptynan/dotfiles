@@ -26,19 +26,23 @@ o to insert on newline, O for prev newline
 ctags
 Run ctags -R . from project root to create tags file.
 * C-] -> jump to definition of thing-cursor-is-on
+* :stag or C-W ] -> open tag definition in new window
+: :ptag or C-W } -> open tag definition in preview window
 * C-t -> jump back up from some of the above jumps
 * :ta[g] {ident} -> jump to ident's definition, can do regex (prefix with /)
 * :tags -> show tags we've traversed
 Browsing multiple results:
-* :ts -> show list
+* :ts or :tagselect -> show list of tags matching
+* :tags or :tagstack-> show stack of tags jumped through
 * :tn, :tp -> next, prev
 * :tf, :tl -> first, last
 \b runs tagbar
+vim -t {ident} opens vim at tag definition.
 
 ; will repeat motions like f, t, etc.
 
-%< built-in variable, that resolves to the file name without extension, e.g.
-%useful for :e %<.h when dealing with C files.
+%< resolves to current filename (with path) without extension.
+* :e %<.h -> opens header if in same directory
 
 [{ jumps to starting { of current code block. ]} does similarly for end of code
 block. Also can use [( and ]).
