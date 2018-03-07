@@ -68,6 +68,9 @@ nmap <F5> :Hexmode<CR>
 "" Quickly toggle numbers
 map <Leader>n :set nu!<CR> :set rnu!<CR>
 
+"" Quickly swap buffers
+map <Leader>g :b#<CR>
+
 
 """ Syntax options
 "" File types
@@ -97,6 +100,7 @@ NeoBundle 'hhvm/vim-hack'
 NeoBundle 'w0rp/ale'
 NeoBundle 'junegunn/fzf.vim'
 NeoBundle 'tpope/vim-eunuch'
+NeoBundle 'jeetsukumaran/vim-indentwise'
 source ~/.fzf/plugin/fzf.vim    " Needed by fzf.vim
 
 "" Necessary

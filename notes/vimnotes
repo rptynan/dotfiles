@@ -57,3 +57,11 @@ Windows stuff:
 * C-w gf -> opens file under cursor in new tab.
 * C-w H -> moves window to left half of screen. Similar for JKL.
 * C-w r -> rotates the windows in the current row, swapping their positions.
+
+vim-indentwise
+* [= -> goes to previous line of same indent level.
+* ]= -> goes to next line of same indent level.
+* - or + can be used for lesser indent and greater indent level.
+* 2]+ -> supports counts.
+* 1]_ -> use _ to do absolute indent level.
+* ]% -> use % to go to beginning or end of current indent block.
