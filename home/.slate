@@ -22,6 +22,7 @@ alias leftslim push left bar-resize:screenSizeX*${slimfrac}
 alias leftwide push left bar-resize:screenSizeX*(1-${slimfrac})
 alias rightslim push right bar-resize:screenSizeX*${slimfrac}
 alias rightwide push right bar-resize:screenSizeX*(1-${slimfrac})
+alias centre move screenSizeX/4;screenOriginY screenSizeX/2;screenSizeY
 
 ## Misc
 bind r:${hyper};shift       relaunch
@@ -40,6 +41,8 @@ bind h:${hyper}     focus left
 bind k:${hyper}     focus up
 bind j:${hyper}     focus down
 bind l:${hyper}     focus right
+# Centre window
+bind c:${hyper}             ${centre}
 
 ## Throw to halves
 bind h:${hyper};shift       ${lefthalf}
