@@ -65,6 +65,12 @@ nmap <F6> :setlocal foldmethod=indent<CR>
 "" For easier hexmode
 nmap <F5> :Hexmode<CR>
 
+"" Quickly toggle numbers
+map <Leader>n :set nu!<CR> :set rnu!<CR>
+
+"" Quickly swap buffers
+map <Leader>g :b#<CR>
+
 
 """ Syntax options
 "" File types
@@ -93,7 +99,10 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'hhvm/vim-hack'
 NeoBundle 'w0rp/ale'
 NeoBundle 'junegunn/fzf.vim'
-source ~/.fzf/plugin/fzf.vim	" Needed by fzf.vim
+NeoBundle 'tpope/vim-eunuch'
+NeoBundle 'jeetsukumaran/vim-indentwise'
+NeoBundle 'christoomey/vim-tmux-navigator'
+source ~/.fzf/plugin/fzf.vim    " Needed by fzf.vim
 
 "" Necessary
 call neobundle#end()
@@ -126,8 +135,32 @@ map <leader>b :Tagbar<CR>
 
 
 """ ALE
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <C-p> <Plug>(ale_previous_wrap)
+nmap <silent> <C-n> <Plug>(ale_next_wrap)
+"" Config
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'php': ['hack'],
+\   'python': ['mypy', 'pep8'],
+\}
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier'],
+\   'php': ['hackfmt'],
+\   'python': ['black', 'isort'],
+\}
+let g:ale_fix_on_save = 1
+"" Various python things that I stole from @pmh
+let g:ale_lint_on_enter = 1
+let g:ale_python_autopep8_use_global=1
+let g:ale_python_flake8_use_global=1
+let g:ale_python_isort_use_global=1
+let g:ale_python_mypy_use_global=1
+let g:ale_python_mypy_options='--ignore-missing-imports'
+let g:ale_python_pycodestyle_use_global=1
+let g:ale_python_pylint_use_global=1
+let g:ale_python_yapf_use_global=1
+let g:ale_echo_msg_format = '[%linter%] %s'
 
 
 """ fzf
