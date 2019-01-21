@@ -102,6 +102,7 @@ NeoBundle 'junegunn/fzf.vim'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'jeetsukumaran/vim-indentwise'
 NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'chaoren/vim-wordmotion'
 source ~/.fzf/plugin/fzf.vim    " Needed by fzf.vim
 
 "" Necessary
@@ -156,11 +157,17 @@ let g:ale_python_autopep8_use_global=1
 let g:ale_python_flake8_use_global=1
 let g:ale_python_isort_use_global=1
 let g:ale_python_mypy_use_global=1
-let g:ale_python_mypy_options='--ignore-missing-imports'
+let g:ale_python_mypy_options='--ignore-missing-imports --cache-dir /tmp/rpt_mypy_cache'
 let g:ale_python_pycodestyle_use_global=1
 let g:ale_python_pylint_use_global=1
 let g:ale_python_yapf_use_global=1
 let g:ale_echo_msg_format = '[%linter%] %s'
+"" Don't run on buck targets
+let g:ale_pattern_options = {
+\ 'TARGETS$': {'ale_linters': [], 'ale_fixers': []},
+\}
+let g:ale_pattern_options_enabled = 1
+
 
 
 """ fzf
