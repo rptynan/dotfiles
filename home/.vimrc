@@ -103,6 +103,7 @@ NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'jeetsukumaran/vim-indentwise'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'chaoren/vim-wordmotion'
+NeoBundle 'tpope/vim-abolish'
 source ~/.fzf/plugin/fzf.vim    " Needed by fzf.vim
 
 "" Necessary
@@ -140,19 +141,33 @@ nmap <silent> <C-p> <Plug>(ale_previous_wrap)
 nmap <silent> <C-n> <Plug>(ale_next_wrap)
 "" Config
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'javascript': ['eslint', 'flow'],
 \   'php': ['hack'],
+\   'hack': ['hack', 'hhast'],
 \   'python': ['mypy', 'pep8'],
 \}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier'],
-\   'php': ['hackfmt'],
-\   'python': ['black', 'isort'],
+\   'php': [],
+\   'hack': [],
+\   'python': ['isort', 'black'],
 \}
+command! HackFMTEnableBuffer let b:ale_fixers = {
+\   'php': ['hackfmt'],
+\   'hack': ['hackfmt'],
+\}
+command! ALEClearBufferFixers let b:ale_fixers = {}
+"" Don't run on buck targets
+let g:ale_pattern_options = {
+\ 'TARGETS$': {'ale_linters': [], 'ale_fixers': []},
+\}
+let g:ale_pattern_options_enabled = 1
 let g:ale_fix_on_save = 1
+" let g:ale_completion_enabled = 1 " Seems to really slow things down
+" let g:ale_lint_on_enter = 1
+let g:ale_echo_msg_format = '[%linter%] %s'
 "" Various python things that I stole from @pmh
-let g:ale_lint_on_enter = 1
 let g:ale_python_autopep8_use_global=1
 let g:ale_python_flake8_use_global=1
 let g:ale_python_isort_use_global=1
@@ -161,17 +176,42 @@ let g:ale_python_mypy_options='--ignore-missing-imports --cache-dir /tmp/rpt_myp
 let g:ale_python_pycodestyle_use_global=1
 let g:ale_python_pylint_use_global=1
 let g:ale_python_yapf_use_global=1
-let g:ale_echo_msg_format = '[%linter%] %s'
-"" Don't run on buck targets
-let g:ale_pattern_options = {
-\ 'TARGETS$': {'ale_linters': [], 'ale_fixers': []},
-\}
-let g:ale_pattern_options_enabled = 1
-
+" Press `K` to view the type in the gutter
+nnoremap <silent> K :ALEHover<CR>
+" Type `gd` to go to definition
+nnoremap <silent> gd :ALEGoToDefinition<CR>
+" show type on hover in a floating bubble TODO
+if v:version >= 801
+    set balloonevalterm
+    let g:ale_set_balloons = 1
+    let balloondelay = 250
+endif
 
 
 """ fzf
 ab bb Buffers       " Use :bb as shorthand for :Buffers
+
+
+""" hackfmt per line from @njg
+function! HackFmt() range
+  let start = a:firstline
+  let end = a:lastline
+  " current range contents, for comparison
+  let curr = join(getline(start, end), "\n")."\n"
+  " the replacement command (passes the full buffer as stdin)
+  let cmd = "hackfmt --line-width=80 --range ".line2byte(start)." ".line2byte(end+1)
+  let output = system(cmd, join(getline(1, '$'), "\n"))
+
+  " if they are the (case-sensitive) same, then don't touch the file
+  if curr ==# output
+    return
+  endif
+
+  " otherwise, delete what's there and put the new output
+  execute start.",".end."d"
+  execute start-1."put =output"
+endfunction
+command! -range -nargs=0 HackFmt <line1>,<line2>call HackFmt()
 
 
 """ Needs to go at the end
