@@ -1,20 +1,10 @@
-# Chronological table of program loadings
-# Edit with "crontab" for proper functionality, "man 5 crontab" for formatting
-# User: ash
+# * * * * *  command to execute
+# │ │ │ │ │
+# │ │ │ │ └─── day of week (0 - 6) (0 to 6 are Sunday to Saturday, or use names; 7 is Sunday, the same as 0)
+# │ │ │ └──────── month (1 - 12)
+# │ │ └───────────── day of month (1 - 31)
+# │ └────────────────── hour (0 - 23)
+# └─────────────────────── min (0 - 59)
 
-# mm (minute), hh (hour) => 0-indexed
-# DD (day of month), MM (month) => 1-indexed
-# W (day of week) => 0-indexed
-
-# Specials:
-# @reboot => at startup
-# @yearly => once a year
-# @annually => ( == @yearly)
-# @monthly => once a month
-# @weekly => once a week
-# @daily => once a day
-# @midnight => ( == @daily)
-# @hourly => once an hour
-
-# mm  hh  DD  MM  W /path/progam [--option]...  ( W = weekday: 0-6 [Sun=0] )
-@reboot rm -rf /home/ash/Downloads/{.*,*}
+# Delete all files in ~/Downloads older than two weeks (actually move to tmp).
+*/15 * * * * find /User/rpt/Downloads/ -mtime +14 -exec mv {} /tmp/ \;

@@ -1,7 +1,0 @@
-# Call power settings script when power supply changes
-# from http://xps13-9333.appspot.com/
-SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="0", RUN+="/etc/pm/power.d/10-power_script true"
-SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="1", RUN+="/etc/pm/power.d/10-power_script false"
-
-# Allow access to audio codec power_save setting to stop coil whine
-KERNEL=="snd_hda_intel", SUBSYSTEM=="module", RUN+="/usr/bin/chmod 666 /sys/module/snd_hda_intel/parameters/power_save"

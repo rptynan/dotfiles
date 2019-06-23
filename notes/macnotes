@@ -1,0 +1,16 @@
+Colourschemes for iTerm2:
+https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized
+
+Karabiner:
+caps -> esc
+caps+x -> ctrl+opt+cmd+x
+Remap caps to esc by self and super if in combination  for all keyboards.
+http://brettterpstra.com/2017/06/15/a-hyper-key-with-karabiner-elements-full-instructions/
+Swap fn and left_control for the "Apple Internal Keyboard / Trackpad".
+
+Slate:
+Using super (cmd+ctrl+opt) and adding shift to it sometimes.
+
+On startup (users & groups, click login items):
+Textual
+Outlook

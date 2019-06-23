@@ -1,0 +1,84 @@
+# TODO
+# resizing
+# checkout default layouts for screen setups
+
+## Main mod keys, hyper, hyper+shift
+alias hyper ctrl;alt;cmd
+
+## Abstract positions
+# Thanks http://nicholascharriere.com/blog/2014/12/basic-slate
+alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias lefthalf push left bar-resize:screenSizeX*0.5
+alias righthalf push right bar-resize:screenSizeX*0.5
+alias tophalf push top bar-resize:screenSizeY*0.5
+alias bottomhalf push bottom bar-resize:screenSizeY*0.5
+alias topleft corner top-left resize:screenSizeX/2;screenSizeY/2
+alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
+alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
+alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
+# Mine
+alias slimfrac 0.4
+alias leftslim push left bar-resize:screenSizeX*${slimfrac}
+alias leftwide push left bar-resize:screenSizeX*(1-${slimfrac})
+alias rightslim push right bar-resize:screenSizeX*${slimfrac}
+alias rightwide push right bar-resize:screenSizeX*(1-${slimfrac})
+alias centre move screenSizeX/4;screenOriginY screenSizeX/2;screenSizeY
+
+## Misc
+bind r:${hyper};shift       relaunch
+bind u:${hyper}             undo
+bind d:${hyper}             hint
+bind f:${hyper}             ${full}
+
+## Focus
+# Arrow keys
+bind up:${hyper}        focus up
+bind right:${hyper}     focus right
+bind left:${hyper}      focus left
+bind down:${hyper}      focus down
+# Vim keys
+bind h:${hyper}     focus left
+bind k:${hyper}     focus up
+bind j:${hyper}     focus down
+bind l:${hyper}     focus right
+# Centre window
+bind c:${hyper}             ${centre}
+
+## Throw to halves
+bind h:${hyper};shift       ${lefthalf}
+bind k:${hyper};shift       ${tophalf}
+bind j:${hyper};shift       ${bottomhalf}
+bind l:${hyper};shift       ${righthalf}
+
+## Throw to corners,
+# yu
+# nm
+bind y:${hyper};shift       ${topleft}
+bind u:${hyper};shift       ${topright}
+bind n:${hyper};shift       ${bottomleft}
+bind m:${hyper};shift       ${bottomright}
+
+## Switch monitors
+# TODO Screen direction relative to the current screen
+# (left|right|up|above|down|below)
+bind n:${hyper}       throw 0 resize
+bind m:${hyper}       throw 1 resize
+
+## Layouts
+# Browser:Coding wide:wide
+layout Coding1 'Google Chrome':REPEAT    ${leftwide}
+layout Coding1 'iTerm2':REPEAT           ${rightwide}
+bind 1:${hyper} layout Coding1
+# Browser:Coding wide:slim
+layout Coding2 'Google Chrome':REPEAT    ${leftwide}
+layout Coding2 'iTerm2':REPEAT           ${rightslim}
+bind 2:${hyper} layout Coding2
+# Side Screen
+layout SideScreen 'Google Chrome':REPEAT ${leftwide}
+layout SideScreen 'Microsoft Outlook'    ${leftwide}
+layout SideScreen 'Textual'              ${rightwide}
+layout SideScreen 'Spotify'              ${rightwide}
+bind 3:${hyper} layout SideScreen
+# Tab Sorting
+layout TabSort 'Google Chrome':REPEAT    push top bar-resize:screenSizeY*0.2
+bind 4:${hyper} layout TabSort
