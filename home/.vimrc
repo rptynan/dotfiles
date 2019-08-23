@@ -110,17 +110,14 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'chaoren/vim-wordmotion'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'junegunn/vader.vim'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 source ~/.fzf/plugin/fzf.vim    " Needed by fzf.vim
 
 "" Necessary
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
-
-
-""" Powerline support
-let $PYTHONPATH='/usr/lib/python3.4/site-packages'
-set laststatus=2
 
 
 """ LaTeX support
@@ -140,6 +137,12 @@ map <F12> :w <Bar> normal \ll<CR>
 
 """ Tagbar
 map <leader>b :Tagbar<CR>
+
+
+""" Airline
+" AirlineTheme solarized
+let g:airline_solarized_bg='dark'
+let g:airline_powerline_fonts=1
 
 
 """ ALE
