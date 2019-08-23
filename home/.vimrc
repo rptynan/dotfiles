@@ -34,6 +34,7 @@ set wildmenu            " <Tab> causes completion menu on commands
 set scrolloff=5         " Keeps that many lines around cursor when scrolling
 set mouse=a             " Use a mouse normally in vim, handy
 set hidden              " Don't require :w if switching away from mod'd buffer
+set backspace=2         " TODO why?
 
 "" Misc
 set history=100         " Larger history
@@ -65,11 +66,15 @@ nmap <F6> :setlocal foldmethod=indent<CR>
 "" For easier hexmode
 nmap <F5> :Hexmode<CR>
 
-"" Quickly toggle numbers
+"" Toggle numbers
 map <Leader>n :set nu!<CR> :set rnu!<CR>
 
-"" Quickly swap buffers
+"" Swap buffers
 map <Leader>g :b#<CR>
+
+"" Swap between .cpp/et.h etc
+map <Leader>h :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+
 
 
 """ Syntax options
@@ -104,6 +109,7 @@ NeoBundle 'jeetsukumaran/vim-indentwise'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'chaoren/vim-wordmotion'
 NeoBundle 'tpope/vim-abolish'
+NeoBundle 'junegunn/vader.vim'
 source ~/.fzf/plugin/fzf.vim    " Needed by fzf.vim
 
 "" Necessary
@@ -144,7 +150,7 @@ let g:ale_linters = {
 \   'javascript': ['eslint', 'flow'],
 \   'php': ['hack'],
 \   'hack': ['hack', 'hhast'],
-\   'python': ['mypy', 'pep8'],
+\   'python': ['pyre', 'pep8'],
 \}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -152,6 +158,7 @@ let g:ale_fixers = {
 \   'php': [],
 \   'hack': [],
 \   'python': ['isort', 'black'],
+\   'cpp': ['clang-format'],
 \}
 command! HackFMTEnableBuffer let b:ale_fixers = {
 \   'php': ['hackfmt'],
@@ -188,8 +195,12 @@ if v:version >= 801
 endif
 
 
+""" vim-wordmotion
+let g:wordmotion_prefix='<Leader>'  " wordmotion uses leader key
+
+
 """ fzf
-ab bb Buffers       " Use :bb as shorthand for :Buffers
+map <Leader>a :Buffers<CR>  " Use \a for buffers
 
 
 """ hackfmt per line from @njg
