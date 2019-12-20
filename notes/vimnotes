@@ -65,3 +65,5 @@ vim-indentwise
 * 2]+ -> supports counts.
 * 1]_ -> use _ to do absolute indent level.
 * ]% -> use % to go to beginning or end of current indent block.
+
+:%s//new-string/g will replace highlighted instances with new-string. Combine with * for fast search and replace.

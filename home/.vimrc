@@ -34,9 +34,10 @@ set wildmenu            " <Tab> causes completion menu on commands
 set scrolloff=5         " Keeps that many lines around cursor when scrolling
 set mouse=a             " Use a mouse normally in vim, handy
 set hidden              " Don't require :w if switching away from mod'd buffer
+set backspace=2         " TODO why?
 
 "" Misc
-set history=100         " Larger history
+set history=10000       " Larger history
 set tabpagemax=100      " More tabs
 set showcmd             " Show number of lines selected in visual mode
 set spell               " I need spellcheck
@@ -65,11 +66,27 @@ nmap <F6> :setlocal foldmethod=indent<CR>
 "" For easier hexmode
 nmap <F5> :Hexmode<CR>
 
-"" Quickly toggle numbers
+"" Toggle numbers
 map <Leader>n :set nu!<CR> :set rnu!<CR>
 
-"" Quickly swap buffers
+"" Swap buffers
 map <Leader>g :b#<CR>
+
+"" Swap between .cpp/et.h etc
+map <Leader>h :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+
+"" Tell tmux to repeat the last command in certain panes
+map <Leader>0 :exe "!tmux send -t 0 Up Enter"<CR><CR>
+map <Leader>1 :exe "!tmux send -t 1 Up Enter"<CR><CR>
+map <Leader>2 :exe "!tmux send -t 2 Up Enter"<CR><CR>
+map <Leader>3 :exe "!tmux send -t 3 Up Enter"<CR><CR>
+map <Leader>4 :exe "!tmux send -t 4 Up Enter"<CR><CR>
+map <Leader>5 :exe "!tmux send -t 5 Up Enter"<CR><CR>
+map <Leader>6 :exe "!tmux send -t 6 Up Enter"<CR><CR>
+map <Leader>7 :exe "!tmux send -t 7 Up Enter"<CR><CR>
+map <Leader>8 :exe "!tmux send -t 8 Up Enter"<CR><CR>
+map <Leader>9 :exe "!tmux send -t 9 Up Enter"<CR><CR>
+
 
 
 """ Syntax options
@@ -104,17 +121,15 @@ NeoBundle 'jeetsukumaran/vim-indentwise'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'chaoren/vim-wordmotion'
 NeoBundle 'tpope/vim-abolish'
+NeoBundle 'junegunn/vader.vim'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 source ~/.fzf/plugin/fzf.vim    " Needed by fzf.vim
 
 "" Necessary
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
-
-
-""" Powerline support
-let $PYTHONPATH='/usr/lib/python3.4/site-packages'
-set laststatus=2
 
 
 """ LaTeX support
@@ -136,6 +151,12 @@ map <F12> :w <Bar> normal \ll<CR>
 map <leader>b :Tagbar<CR>
 
 
+""" Airline
+" AirlineTheme solarized
+let g:airline_solarized_bg='dark'
+let g:airline_powerline_fonts=1
+
+
 """ ALE
 nmap <silent> <C-p> <Plug>(ale_previous_wrap)
 nmap <silent> <C-n> <Plug>(ale_next_wrap)
@@ -144,7 +165,8 @@ let g:ale_linters = {
 \   'javascript': ['eslint', 'flow'],
 \   'php': ['hack'],
 \   'hack': ['hack', 'hhast'],
-\   'python': ['mypy', 'pep8'],
+\   'python': ['pyre', 'pep8'],
+\   'cpp': ['cquery_buck', 'clangcheck'],
 \}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -152,6 +174,7 @@ let g:ale_fixers = {
 \   'php': [],
 \   'hack': [],
 \   'python': ['isort', 'black'],
+\   'cpp': ['clang-format'],
 \}
 command! HackFMTEnableBuffer let b:ale_fixers = {
 \   'php': ['hackfmt'],
@@ -188,8 +211,12 @@ if v:version >= 801
 endif
 
 
+""" vim-wordmotion
+let g:wordmotion_prefix='<Leader>'  " wordmotion uses leader key
+
+
 """ fzf
-ab bb Buffers       " Use :bb as shorthand for :Buffers
+map <Leader>a :Buffers<CR>  " Use \a for buffers
 
 
 """ hackfmt per line from @njg
