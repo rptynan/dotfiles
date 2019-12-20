@@ -75,6 +75,18 @@ map <Leader>g :b#<CR>
 "" Swap between .cpp/et.h etc
 map <Leader>h :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
+"" Tell tmux to repeat the last command in certain panes
+map <Leader>0 :exe "!tmux send -t 0 Up Enter"<CR><CR>
+map <Leader>1 :exe "!tmux send -t 1 Up Enter"<CR><CR>
+map <Leader>2 :exe "!tmux send -t 2 Up Enter"<CR><CR>
+map <Leader>3 :exe "!tmux send -t 3 Up Enter"<CR><CR>
+map <Leader>4 :exe "!tmux send -t 4 Up Enter"<CR><CR>
+map <Leader>5 :exe "!tmux send -t 5 Up Enter"<CR><CR>
+map <Leader>6 :exe "!tmux send -t 6 Up Enter"<CR><CR>
+map <Leader>7 :exe "!tmux send -t 7 Up Enter"<CR><CR>
+map <Leader>8 :exe "!tmux send -t 8 Up Enter"<CR><CR>
+map <Leader>9 :exe "!tmux send -t 9 Up Enter"<CR><CR>
+
 
 
 """ Syntax options
@@ -154,6 +166,7 @@ let g:ale_linters = {
 \   'php': ['hack'],
 \   'hack': ['hack', 'hhast'],
 \   'python': ['pyre', 'pep8'],
+\   'cpp': ['cquery_buck', 'clangcheck'],
 \}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
