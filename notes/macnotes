@@ -11,6 +11,7 @@ Swap fn and left_control for the "Apple Internal Keyboard / Trackpad".
 Slate:
 Using super (cmd+ctrl+opt) and adding shift to it sometimes.
 
-On startup (users & groups, click login items):
-Textual
-Outlook
+Brew install
+tmux
+reattach-to-user-namespace (or else tmux will crash with my tmux.conf)
+
