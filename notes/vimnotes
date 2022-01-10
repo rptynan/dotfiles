@@ -7,7 +7,8 @@ as and is are similar, based on sentence movements ) and (.
 ap and ip are similar, based on paragraph movements } and {.
 Similarly can be done for ", ' and `
 * ci" ->  changes contents of a string
-Also can be done for () (use ) or b), [], {} and html tags (use t for block, > for actual tag).
+Also can be done for () (use ) or b), [], {} and html tags (use t for block, >
+for actual tag).
 
 vim-surround
 * cs"' -> changes " quotes to ' around cursor position.
@@ -66,4 +67,11 @@ vim-indentwise
 * 1]_ -> use _ to do absolute indent level.
 * ]% -> use % to go to beginning or end of current indent block.
 
-:%s//new-string/g will replace highlighted instances with new-string. Combine with * for fast search and replace.
+:%s//new-string/g will replace highlighted instances with new-string. Combine
+with * for fast search and replace.
+
+fzf
+is amazing, has a bunch of useful functions (like :Buffers, :Rg, :GFiles) for
+fuzzy searching. Have aliased a lot of these to leader + letter commands.
+When looking through the file list of results, enter opens in current window,
+ctrl-t opens in new tab, crtl-x/v opens in :split or :vsplit respectively.
