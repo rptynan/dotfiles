@@ -18,3 +18,7 @@ alias sshs="eval $(ssh-agent) ssh-add"
 
 # Fun
 alias vimsnake="bash ~/.zshell/vimsnake.sh"
+
+# Dirs
+alias darw="cd ~/code/darwin"
+alias dash="cd ~/code/dashboard"
