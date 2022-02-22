@@ -87,6 +87,38 @@ map <Leader>7 :exe "!tmux send -t 7 Up Enter"<CR><CR>
 map <Leader>8 :exe "!tmux send -t 8 Up Enter"<CR><CR>
 map <Leader>9 :exe "!tmux send -t 9 Up Enter"<CR><CR>
 
+"" Easier explore
+map <Leader>d :Ex<CR>
+
+"" Zooming panes
+function! WinZoomToggle() abort
+    if ! exists('w:WinZoomIsZoomed')
+        let w:WinZoomIsZoomed = 0
+    endif
+    if w:WinZoomIsZoomed == 0
+        let w:WinZoomOldWidth = winwidth(0)
+        let w:WinZoomOldHeight = winheight(0)
+        wincmd _
+        wincmd |
+        let w:WinZoomIsZoomed = 1
+    elseif w:WinZoomIsZoomed == 1
+        execute "resize " . w:WinZoomOldHeight
+        execute "vertical resize " . w:WinZoomOldWidth
+        let w:WinZoomIsZoomed = 0
+    endif
+endfunction
+
+nnoremap <leader>z :call WinZoomToggle()<CR>
+
+"" Don't jump when highlighting with *
+nnoremap * *``
+
+"" Can select text with v (e.g. vi') and then do <leader>64 to base64 decode it
+vnoremap <leader>64 c<c-r>=system('base64 --decode', @")<cr><esc>
+
+"" Easier splits
+map <leader>v :vsplit<CR>
+map <leader>V :split<CR>
 
 
 """ Syntax options
@@ -110,7 +142,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "" List of plugins to install and keep
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'majutsushi/tagbar'
 NeoBundle 'fidian/hexmode'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'hhvm/vim-hack'
@@ -145,10 +176,6 @@ let g:Tex_DefaultTargetFormat='pdf'
 "" Sane keybindings
 nmap <F11> \lv
 map <F12> :w <Bar> normal \ll<CR>
-
-
-""" Tagbar
-map <leader>b :Tagbar<CR>
 
 
 """ Airline
