@@ -92,7 +92,7 @@ map <Leader>8 :exe "!tmux send -t 8 Up Enter"<CR><CR>
 map <Leader>9 :exe "!tmux send -t 9 Up Enter"<CR><CR>
 
 "" Easier explore
-map <Leader>e :Ex<CR>
+map <Leader>d :Ex<CR>
 
 "" Zooming panes
 function! WinZoomToggle() abort
@@ -120,6 +120,10 @@ nnoremap * *``
 "" Can select text with v (e.g. vi') and then do <leader>64 to base64 decode it
 vnoremap <leader>64 c<c-r>=system('base64 --decode', @")<cr><esc>
 
+"" Easier splits
+map <leader>v :vsplit<CR>
+map <leader>V :split<CR>
+
 
 """ Syntax options
 "" File types
@@ -142,7 +146,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "" List of plugins to install and keep
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'majutsushi/tagbar'
 NeoBundle 'fidian/hexmode'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'hhvm/vim-hack'
@@ -177,10 +180,6 @@ let g:Tex_DefaultTargetFormat='pdf'
 "" Sane keybindings
 nmap <F11> \lv
 map <F12> :w <Bar> normal \ll<CR>
-
-
-""" Tagbar
-map <leader>b :Tagbar<CR>
 
 
 """ Airline
