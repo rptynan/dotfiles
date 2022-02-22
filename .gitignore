@@ -1,1 +1,5 @@
-bin/pi
+home/.config/configstore/
+home/.config/gh/
+home/.config/iterm2/AppSupport
+home/.config/karabiner/automatic_backups/
+home/.config/yarn/
