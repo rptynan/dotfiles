@@ -1,0 +1,9 @@
+#!/bin/bash
+
+FILES_PATTERN='(\..+)?$'
+FORBIDDEN='(@nocommit|inspecto|console\.log)'
+
+if ( git diff --cached --name-only | grep -E $FILES_PATTERN | xargs grep -i -E --with-filename -n $FORBIDDEN ); then
+  echo "***** WARNING: @NOCOMMIT type thing found. Remember to remove it! *****"
+  # exit 1
+fi

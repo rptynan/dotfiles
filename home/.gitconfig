@@ -13,7 +13,8 @@
   tool = vimdiff
 [core]
   editor = /usr/bin/vim
-  excludesfile = ~/.global_gitignore
+  excludesFile = ~/.global_gitignore
+  hooksPath = ~/.githooks
 [push]
   default = current
 [pull]
@@ -21,3 +22,14 @@
   rebase = true
 [hub]
   protocol = ssh
+[alias]
+  s = status
+  st = status
+  d = diff
+  dif = diff
+  co = checkout
+  revall = reset --hard HEAD
+  prev = checkout HEAD~
+  smartlog = log --graph --pretty=format:'commit: %C(bold red)%h%Creset %C(red)<%H>%Creset %C(bold magenta)%d %Creset%ndate: %C(bold yellow)%cd %Creset%C(yellow)%cr%Creset%nauthor: %C(bold blue)%an%Creset %C(blue)<%ae>%Creset%n%C(cyan)%s%n%Creset'
+  sl = !git smartlog
+  clearmerged = "!git co dev; git branch --merged | grep -v '* dev' | awk '{print $1}' | xargs -p git branch -D"
