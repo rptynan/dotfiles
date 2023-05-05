@@ -590,7 +590,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Monaco 12</string>
+			<string>Hack-Regular 12</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -708,7 +708,7 @@
 			<key>Use Non-ASCII Font</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>1</real>
+			<real>1.05</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
@@ -1288,7 +1288,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Monaco 12</string>
+			<string>Hack-Regular 12</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1423,8 +1423,24 @@
 	</dict>
 	<key>Print In Black And White</key>
 	<true/>
+	<key>Snippets</key>
+	<array>
+		<dict>
+			<key>guid</key>
+			<string>5825B405-8821-4717-B0E3-DBBE84BB7B38</string>
+			<key>title</key>
+			<string>fa338567ca0308129d6e0aaa7bd6a80e4f6dbca5767c7f1c81f0393057
+</string>
+			<key>value</key>
+			<string>fa338567ca0308129d6e0aaa7bd6a80e4f6dbca5767c7f1c81f0393057\n</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
 	<key>SoundForEsc</key>
 	<false/>
+	<key>TimeBetweenTips</key>
+	<real>604800</real>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>WordCharacters</key>
