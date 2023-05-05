@@ -20,6 +20,10 @@
 [pull]
 	default = current
   rebase = true
+[fetch]
+  prune = true
+[diff]
+  colorMoved = zebra
 [hub]
   protocol = ssh
 [alias]
@@ -28,8 +32,12 @@
   d = diff
   dif = diff
   co = checkout
+  amend = commit --amend
   revall = reset --hard HEAD
   prev = checkout HEAD~
+  pul = pull
+  p = pull
   smartlog = log --graph --pretty=format:'commit: %C(bold red)%h%Creset %C(red)<%H>%Creset %C(bold magenta)%d %Creset%ndate: %C(bold yellow)%cd %Creset%C(yellow)%cr%Creset%nauthor: %C(bold blue)%an%Creset %C(blue)<%ae>%Creset%n%C(cyan)%s%n%Creset'
   sl = !git smartlog
   clearmerged = "!git co dev; git branch --merged | grep -v '* dev' | awk '{print $1}' | xargs -p git branch -D"
+  f = "!gitf() { git switch -c \"richardtynan/$1\"; }; gitf"

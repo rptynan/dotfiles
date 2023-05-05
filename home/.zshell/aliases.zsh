@@ -15,6 +15,7 @@ alias setus="setxkbmap -layout 'us' && setxkbmap -option caps:escape"
 alias setie="setxkbmap -layout 'ie'"
 alias setde="setxkbmap -layout 'de'"
 alias sshs="eval $(ssh-agent) ssh-add"
+alias c="clear"
 
 # Fun
 alias vimsnake="bash ~/.zshell/vimsnake.sh"
@@ -22,3 +23,8 @@ alias vimsnake="bash ~/.zshell/vimsnake.sh"
 # Dirs
 alias darw="cd ~/code/darwin"
 alias dash="cd ~/code/dashboard"
+
+# Darwin
+alias tw="yarn workspace @metomic/darwin test:watch"
+alias ppf="./infra/production/open-prod-portforwards.sh"
+alias spf="./infra/staging/open-staging-portforwards.sh"

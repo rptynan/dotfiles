@@ -12,6 +12,10 @@ export VISUAL="vim"
 # Enable 256 Colours
 export TERM="xterm-256color"
 
+# History
+export HISTSIZE=100000
+export SAVEHIST=$HISTSIZE
+
 # Run at start
 if (( $+commands[fortune] )); then
   fortune -a
@@ -30,3 +34,6 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z'          fancy-ctrl-z
+
+# undo this from zprezto
+unalias sl
