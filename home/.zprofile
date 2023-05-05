@@ -76,3 +76,8 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
+
+#
+# ulimit - increase open files limit on mac
+#
+ulimit -n 1048576 1048576
