@@ -41,3 +41,5 @@
   sl = !git smartlog
   clearmerged = "!git co dev; git branch --merged | grep -v '* dev' | awk '{print $1}' | xargs -p git branch -D"
   f = "!gitf() { git switch -c \"richardtynan/$1\"; }; gitf"
+[init]
+  defaultBranch = main
