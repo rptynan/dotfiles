@@ -104,7 +104,7 @@ map <Leader>d :Ex<CR>
 "" fzf somehow.
 nnoremap <leader>* :exe '!tmux send -t 1 "rg ' . expand('<cword>') . '" Enter'<CR><CR>
 "" Experimental: Grab current file path and put into system clipboard
-nnoremap <leader>] :let @" = expand("%")<CR>
+nnoremap <leader>] :let @+ = expand("%")<CR>
 
 "" Make the window just wide enough to show 120 chars
 nnoremap <leader>q :vertical resize 124<CR>
@@ -187,6 +187,8 @@ NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 " Better displaying of csv files
 NeoBundle 'chrisbra/csv.vim'
+" More syntax highlighting packs (e.g. for terraform)
+NeoBundle 'sheerun/vim-polyglot'
 source ~/.fzf/plugin/fzf.vim    " Needed by fzf.vim
 
 "" Necessary
@@ -303,6 +305,19 @@ nnoremap <leader>I :ALEOrganizeImports<CR>
 
 """ vim-wordmotion
 let g:wordmotion_prefix='<Leader>'  " wordmotion uses leader key
+
+
+""" vim-tmux-navigator
+" Don't let netrw override <C-l> to move between tmux panes
+" https://github.com/christoomey/vim-tmux-navigator/issues/189
+augroup netrw_mapping
+  autocmd!
+  autocmd filetype netrw call NetrwMapping()
+augroup END
+function! NetrwMapping()
+  nnoremap <silent> <buffer> <c-l> :TmuxNavigateRight<CR>
+endfunction
+
 
 
 """ fzf

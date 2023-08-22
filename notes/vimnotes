@@ -66,4 +66,30 @@ vim-indentwise
 * 1]_ -> use _ to do absolute indent level.
 * ]% -> use % to go to beginning or end of current indent block.
 
-:%s//new-string/g will replace highlighted instances with new-string. Combine with * for fast search and replace.
+:%s//new-string/g will replace highlighted instances with new-string. Combine
+with * for fast search and replace.
+
+fzf
+is amazing, has a bunch of useful functions (like :Buffers, :Rg, :GFiles) for
+fuzzy searching. Have aliased a lot of these to leader + letter commands.
+When looking through the file list of results, enter opens in current window,
+ctrl-t opens in new tab, crtl-x/v opens in :split or :vsplit respectively.
+
+Registers
+Obviously you can use explicit registers by doing things like "qyy to put a
+line into the q register.
+But there are built-ins too:
+* "0 -> Always has the last yanked text (super useful for yanking, then
+        deleting something, then pasting the yank that was overwritten)
+* "1 to "9 -> Have the last deleted text, with 1 having most recent and 9
+        having the oldest
+* "% -> Current file path
+* ": -> Most recent executed command
+* "# -> Name of the alternate file
+* "+ -> Clipboard register
+* "= -> Expression result (in insert mode, hit C-r =, then you can run
+        arbitrary commands to insert)
+* "/ -> Last thing search with /, *, etc (use C-r / for find an replace to
+        insert highlighted thing for example)
+Fun tip: If you record a macro for a letter(e.g. qw) it's stored in that
+register. And you can edit it to edit the macro.
