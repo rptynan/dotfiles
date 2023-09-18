@@ -194,6 +194,10 @@ NeoBundle 'chrisbra/csv.vim'
 " More syntax highlighting packs (e.g. for terraform)
 NeoBundle 'sheerun/vim-polyglot'
 source ~/.fzf/plugin/fzf.vim    " Needed by fzf.vim
+" LLM plugin
+NeoBundle 'madox2/vim-ai'
+
+
 
 "" Necessary
 call neobundle#end()
