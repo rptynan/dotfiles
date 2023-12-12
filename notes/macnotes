@@ -1,17 +1,33 @@
-Colourschemes for iTerm2:
-https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized
-
 Karabiner:
-caps -> esc
-caps+x -> ctrl+opt+cmd+x
-Remap caps to esc by self and super if in combination  for all keyboards.
-http://brettterpstra.com/2017/06/15/a-hyper-key-with-karabiner-elements-full-instructions/
-Swap fn and left_control for the "Apple Internal Keyboard / Trackpad".
+Config in configs directory. Summary:
+- caps -> esc
+- caps+x -> ctrl+opt+cmd+x
+- Remap caps to esc by self and super if in combination  for all keyboards.
+  http://brettterpstra.com/2017/06/15/a-hyper-key-with-karabiner-elements-full-instructions/
+- Swap fn and left_control for the "Apple Internal Keyboard / Trackpad". Need to keep a fn so I can use it for fn+hjkl as arrows.
 
 Slate:
+https://github.com/jigish/slate
 Using super (cmd+ctrl+opt) and adding shift to it sometimes.
 
 Brew install
 tmux
 reattach-to-user-namespace (or else tmux will crash with my tmux.conf)
 
+Crontab for Downloads:
+*/15 * * * * find /Users/rpt/Downloads/ -mtime +14 -maxdepth 1 -exec mv {} /tmp \;
+
+
+iTerm2:
+Download it from website
+Go to Settings > Preferences
+Set the load preferences from custom folder and set it to dotfiles/configs (where com.googlecode.iterm2.plist should
+be)
+
+For font, go to https://github.com/source-foundry/Hack and download + install.
+
+Colourschemes for iTerm2 (might not be needed if above is done):
+https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized
+
+Vim:
+You'll want to `brew install vim` instead of the provided one with macos as it's missing some features.
