@@ -12,7 +12,7 @@
 [merge]
   tool = vimdiff
 [core]
-  editor = /usr/bin/vim
+	editor = vim
   excludesfile = ~/.global_gitignore
   hooksPath = ~/.githooks
 [push]
