@@ -12,6 +12,7 @@ set background=dark     " Dark solarized
 "colorscheme solarized  " Put to end because of NeoBundle
 set colorcolumn=120     " Highlight textwidth column
 set textwidth=120       " Set this to 120 (TODO make this only apply to JS & TS)
+autocmd FileType python setlocal colorcolumn=88 textwidth=88
 set relativenumber      " So good, just so good, try it
 set number              " Doesn't replace relnum
 set cursorline          " make current line stand out
@@ -47,10 +48,10 @@ set tabpagemax=100      " More tabs
 set showcmd             " Show number of lines selected in visual mode
 set spell               " I need spellcheck
 " Needed for spellcheck to work with colourschemes
-augroup my_colours
-  autocmd!
-  autocmd ColorScheme solarized hi SpellBad cterm=underline
-augroup END
+"augroup my_colours
+"  autocmd!
+"  autocmd ColorScheme solarized hi SpellBad cterm=underline
+"augroup END
 set tags=tags;~         " Search for tags up to home directory
 
 
@@ -112,6 +113,8 @@ nnoremap <leader>] :let @+ = expand("%")<CR>
 
 "" Make the window just wide enough to show 120 chars
 nnoremap <leader>q :vertical resize 124<CR>
+"" Easier ctr-w =
+nnoremap <leader>= :horizontal wincmd =<CR>
 
 
 
@@ -153,7 +156,7 @@ autocmd! BufNewFile,BufRead *.ino setlocal ft=cpp
 autocmd! BufNewFile,BufRead *.scad setlocal ft=cpp
 autocmd! BufNewFile,BufRead *.pl setlocal ft=prolog
 "" Custom Commentary things
-autocmd FileType sml set commentstring=\(\*\ %s\ \*\)
+"autocmd FileType sml set commentstring=\(\*\ %s\ \*\)
 "" Match <> brackets like {},(),etc
 set matchpairs+=<:>
 
@@ -196,6 +199,8 @@ NeoBundle 'sheerun/vim-polyglot'
 source ~/.fzf/plugin/fzf.vim    " Needed by fzf.vim
 " LLM plugin
 NeoBundle 'madox2/vim-ai'
+" let's try this
+NeoBundle 'puremourning/vimspector'
 
 
 
@@ -248,7 +253,7 @@ let g:ale_linters = {
 \   'typescriptreact': ['eslint', 'tsserver'],
 \   'php': ['hack'],
 \   'hack': ['hack', 'hhast'],
-\   'python': ['pyre', 'pep8'],
+\   'python': ['mypy', 'flake8'],
 \   'cpp': ['cquery_buck', 'clangcheck'],
 \}
 let g:ale_fixers = {
@@ -288,6 +293,9 @@ let g:ale_python_yapf_use_global=1
 let g:ale_detail_to_floating_preview=1
 let g:ale_hover_to_floating_preview=1
 let g:ale_floating_window_border=[]
+
+let g:ale_set_balloons=0
+let g:ale_cursor_detail=0
 " Fun gutter signs for lints+errors
 let g:ale_sign_warning="🔧"
 let g:ale_sign_error="🔥"
@@ -311,8 +319,9 @@ nnoremap <leader>u :ALECodeAction<CR>
 nnoremap <leader>i :ALEImport<CR>
 " Organise imports
 nnoremap <leader>I :ALEOrganizeImports<CR>
+" Rename symbols
+nnoremap <leader>o :ALERename<CR>
 
-nnoremap <leader>i :ALECodeAction<CR>
 
 
 
@@ -350,6 +359,7 @@ map <Leader>S "zyiw :Rg <C-r>z<CR>
 map <Leader><Leader>S "zy :Rg <C-r>z<CR>
 
 
+
 """ hackfmt per line from @njg
 function! HackFmt() range
   let start = a:firstline
@@ -383,6 +393,44 @@ function! DarkMode()
   AirlineTheme solarized
 endfunction
 command! -range -nargs=0 DarkMode call DarkMode()
+
+
+
+""" vim-ai
+let s:initial_chat_prompt =<< trim END
+>>> system
+
+You are a general coding assistant. Please observe the following rules:
+- Be very brief with your answers.
+- If you are shown code, and not asked to explain what it does, just output "Ack".
+
+Unless otherwise mentioned, assume you are working on a stack of TypeScript, that uses Postgres for primary storage,
+Elasticsearch for complex read queries, Redis for caching and Kafka for streaming messages/jobs between different pieces
+of code (called DPUs).
+
+If you attach a code block add syntax type after ``` to enable syntax highlighting.
+END
+let g:vim_ai_token_file_path = '~/.config/openai.token'
+" let g:vim_ai_token_file_path = '~/.config/openai-personal.token'
+let g:vim_ai_chat = {
+\  "options": {
+\    "endpoint_url": "https://api.openai.com/v1/chat/completions",
+\    "model": "gpt-4o",
+\    "max_tokens": 1000,
+\    "temperature": 1,
+\    "request_timeout": 20,
+\    "enable_auth": 1,
+\    "selection_boundary": "",
+\    "initial_prompt": s:initial_chat_prompt,
+\  },
+\  "ui": {
+\    "code_syntax_enabled": 1,
+\    "populate_options": 0,
+\    "open_chat_command": "preset_below",
+\    "scratch_buffer_keep_open": 1,
+\    "paste_mode": 1,
+\  },
+\}
 
 
 """ Needs to go at the end

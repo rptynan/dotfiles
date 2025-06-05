@@ -20,6 +20,7 @@ for file in home/.[^.]*; do
     echo -en "\x1B[33m~/$base exists and differs from your dotfile. Override?  [yn]\x1B[39m"
     read -n 1; echo ""
     if [[ $REPLY =~ [yY]* ]]; then
+      mv $target /tmp
       symlink $path $target
     fi
   else

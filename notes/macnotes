@@ -31,3 +31,9 @@ https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized
 
 Vim:
 You'll want to `brew install vim` instead of the provided one with macos as it's missing some features.
+
+NeoVim:
+- Had to follow https://peterbabic.dev/blog/install-pynvim-via-homebrew-properly/ to get the python provider working.
+- New iterm colorschemes: https://github.com/folke/tokyonight.nvim/tree/main/extras/iterm
+- Tmux config ripped from here: https://github.com/folke/tokyonight.nvim/blob/main/extras/tmux/tokyonight_moon.tmux
+- Needed to install https://www.nerdfonts.com/font-downloads Hack Nerd Font for iterm
