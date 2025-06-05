@@ -80,6 +80,6 @@ fi
 #
 # ulimit - increase open files limit on mac
 #
-ulimit -n 1048576 1048576
+ulimit -n 1048576
 
 eval "$(/opt/homebrew/bin/brew shellenv)"

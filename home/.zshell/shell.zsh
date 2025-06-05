@@ -10,7 +10,7 @@ export EDITOR="vim"
 export VISUAL="vim"
 
 # Enable 256 Colours
-export TERM="xterm-256color"
+# export TERM="xterm-256color" # Not for nvim
 
 # History
 export HISTSIZE=100000
@@ -36,4 +36,4 @@ zle -N fancy-ctrl-z
 bindkey '^Z'          fancy-ctrl-z
 
 # undo this from zprezto
-# unalias sl
+unalias sl
