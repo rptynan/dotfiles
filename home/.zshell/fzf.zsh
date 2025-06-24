@@ -33,7 +33,7 @@ __list_git_branches_timewise(){
 }
 
 
-go() {
+goo() {
  git checkout "$(__list_git_branches_timewise | fzf | cut -f2)"
 }
 
