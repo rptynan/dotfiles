@@ -6,7 +6,7 @@ return {
 	-- Allows moving vim buffers like tmux panes.
 	{ "christoomey/vim-tmux-navigator" },
 	-- https://github.com/olimorris/codecompanion.nvim instead maybe
-	{ "madox2/vim-ai" },
+	-- { "madox2/vim-ai" },
 	-- cs'", cs({, ysiw", etc
 	{ "tpope/vim-surround" },
 	-- gc for easy comment/uncommenting.

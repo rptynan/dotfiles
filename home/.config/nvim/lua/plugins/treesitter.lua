@@ -8,6 +8,8 @@ return {
 				"javascript",
 				"typescript",
 				"terraform",
+				"go",
+				"yaml",
 			},
 			highlight = {
 				enable = true,
