@@ -8,9 +8,8 @@ set encoding=utf-8
 "" Appearance
 syntax enable
 set t_Co=256
-set background=dark     " Dark solarized
-"colorscheme solarized  " Put to end because of NeoBundle
 set colorcolumn=120     " Highlight textwidth column
+" colorscheme is set at end due to Neobundle
 set textwidth=120       " Set this to 120 (TODO make this only apply to JS & TS)
 autocmd FileType python setlocal colorcolumn=88 textwidth=88
 set relativenumber      " So good, just so good, try it
@@ -47,11 +46,6 @@ set history=10000       " Larger history
 set tabpagemax=100      " More tabs
 set showcmd             " Show number of lines selected in visual mode
 set spell               " I need spellcheck
-" Needed for spellcheck to work with colourschemes
-"augroup my_colours
-"  autocmd!
-"  autocmd ColorScheme solarized hi SpellBad cterm=underline
-"augroup END
 set tags=tags;~         " Search for tags up to home directory
 
 
@@ -435,6 +429,7 @@ let g:vim_ai_chat = {
 
 
 """ Needs to go at the end
+let g:solarized_termcolors=256
 colorscheme solarized
 highlight ALEVirtualTextError ctermfg=DarkMagenta
 highlight ALEVirtualTextWarning ctermfg=Black
