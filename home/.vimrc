@@ -196,7 +196,8 @@ NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'chrisbra/csv.vim'
 " More syntax highlighting packs (e.g. for terraform)
 NeoBundle 'sheerun/vim-polyglot'
-source ~/.fzf/plugin/fzf.vim    " Needed by fzf.vim
+" Disabled when I moved to nvim
+" source ~/.fzf/plugin/fzf.vim    " Needed by fzf.vim
 " LLM plugin
 NeoBundle 'madox2/vim-ai'
 " let's try this

@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+# Sets up default integrations + keybindings
+source <(fzf --zsh)
+
 # Enable multi-mode
 export FZF_DEFAULT_OPTS="-m"
 
