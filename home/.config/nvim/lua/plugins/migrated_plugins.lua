@@ -1,8 +1,6 @@
 return {
   -- Used for above git fzfs
   { "tpope/vim-fugitive" },
-  -- Allows moving vim buffers like tmux panes.
-  { "christoomey/vim-tmux-navigator" },
   -- cs'", cs({, ysiw", etc
   { "tpope/vim-surround" },
   -- gc for easy comment/uncommenting.
