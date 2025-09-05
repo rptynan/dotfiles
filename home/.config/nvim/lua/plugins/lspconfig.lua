@@ -51,7 +51,20 @@ return {
 
 		vim.lsp.config("lua_ls", {})
 
-		vim.lsp.config("pyright", {})
+		vim.lsp.config("pyright", {
+			settings = {
+				python = {
+					analysis = {
+						autoSearchPaths = true,
+						useLibraryCodeForTypes = true,
+						diagnosticMode = "openFilesOnly",
+						autoImportCompletion = true,
+					},
+				},
+			},
+		})
+
+		-- lspconfig.pyright.setup {on_attach = on_attach,settings = {pyright = {autoImportCompletion = true,},python = {analysis = {autoSearchPaths = true,diagnosticMode = 'openFilesOnly',useLibraryCodeForTypes = true,typeCheckingMode = 'off'}}}}
 
 		vim.lsp.config("gopls", {})
 

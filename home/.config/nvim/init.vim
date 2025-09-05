@@ -8,8 +8,8 @@ set encoding=utf-8
 "" Appearance
 syntax enable
 set t_Co=256
-set colorcolumn=120     " Highlight textwidth column
-set textwidth=120       " Set this to 120 (TODO make this only apply to JS & TS)
+set colorcolumn=100     " Highlight textwidth column
+set textwidth=100       " Set this to 120 (TODO make this only apply to JS & TS)
 autocmd FileType python setlocal colorcolumn=88 textwidth=88
 set relativenumber      " So good, just so good, try it
 set number              " Doesn't replace relnum

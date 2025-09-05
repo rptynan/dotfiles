@@ -3,6 +3,12 @@ return {
     "ibhagwan/fzf-lua",
     config = function()
       require("fzf-lua").setup({
+        winopts = {
+          preview = {
+            -- Use vertical layout only if we have more columns than this.
+            flip_columns = 200,
+          },
+        },
         keymap = {
           builtin = {
             ["<C-h>"] = "toggle-preview",
