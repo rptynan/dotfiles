@@ -21,11 +21,4 @@ alias c="clear"
 alias vimsnake="bash ~/.zshell/vimsnake.sh"
 
 # Dirs
-alias darw="cd ~/code/darwin"
-alias dash="cd ~/code/dashboard"
-
-# Darwin
-alias tw="yarn workspace @metomic/darwin test:watch"
-alias ppf="./infra/production/open-prod-portforwards.sh"
-alias upf="./infra/production/us-east-1/open-prod-portforwards.sh"
-alias spf="./infra/staging/open-staging-portforwards.sh"
+alias wad="cd ~/src/github.com/monzo/wearedev/"

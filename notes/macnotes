@@ -19,24 +19,19 @@ Crontab for Downloads:
 
 
 iTerm2:
-Download it from website
-Go to Settings > Preferences
-Set the load preferences from custom folder and set it to dotfiles/configs (where com.googlecode.iterm2.plist should
-be)
-
-For font, go to https://github.com/source-foundry/Hack and download + install.
-
-Colourschemes for iTerm2 (might not be needed if above is done):
-https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized
+- Download it from website
+- Go to Settings > Preferences
+- Set the load preferences from custom folder and set it to dotfiles/configs (where com.googlecode.iterm2.plist should be)
+- For font and colourschemes, see below.
 
 fzf:
-Just `brew install fzf`, the zsh config will source keybindings once the binary is available in the path.
+- Just `brew install fzf`, the zsh config will source keybindings once the binary is available in the path.
 
 Vim:
-You'll want to `brew install vim` instead of the provided one with macos as it's missing some features.
+- You'll want to `brew install vim` instead of the provided one with macos as it's missing some features.
 
 NeoVim:
 - Had to follow https://peterbabic.dev/blog/install-pynvim-via-homebrew-properly/ to get the python provider working.
 - New iterm colorschemes: https://github.com/folke/tokyonight.nvim/tree/main/extras/iterm
-- Tmux config ripped from here: https://github.com/folke/tokyonight.nvim/blob/main/extras/tmux/tokyonight_moon.tmux
-- Needed to install https://www.nerdfonts.com/font-downloads Hack Nerd Font for iterm
+- Tmux config ripped from here (it's already in .tmux.conf): https://github.com/folke/tokyonight.nvim/blob/main/extras/tmux/tokyonight_moon.tmux
+- Needed to install https://www.nerdfonts.com/font-downloads -> Hack Nerd Font for iterm

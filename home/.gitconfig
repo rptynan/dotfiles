@@ -12,7 +12,6 @@
 [merge]
   tool = vimdiff
 [core]
-	editor = vim
   excludesfile = ~/.global_gitignore
   hooksPath = ~/.githooks/
 [push]
@@ -29,17 +28,19 @@
 [alias]
   s = status
   st = status
+  ad = add
   d = diff
   dif = diff
   co = checkout
   amend = commit --amend
   revall = reset --hard HEAD
   prev = checkout HEAD~
+  m = checkout master
   pul = pull
   p = pull
   smartlog = log --graph --pretty=format:'commit: %C(bold red)%h%Creset %C(red)<%H>%Creset %C(bold magenta)%d %Creset%ndate: %C(bold yellow)%cd %Creset%C(yellow)%cr%Creset%nauthor: %C(bold blue)%an%Creset %C(blue)<%ae>%Creset%n%C(cyan)%s%n%Creset'
   sl = !git smartlog
   clearmerged = "!git co dev; git branch --merged | grep -v '* dev' | awk '{print $1}' | xargs -p git branch -D"
-  f = "!gitf() { git switch -c \"richardtynan/$1\"; }; gitf"
+  f = "!gitf() { git switch -c \"rptynan/$1\"; }; gitf"
 [init]
-  defaultBranch = main
+  defaultBranch = master

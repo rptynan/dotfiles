@@ -43,12 +43,3 @@ echo ""
 if [[ $REPLY =~ [yY] ]]; then
     curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 fi
-
-
-echo -ne "\x1B[33m~/Install fzf?[yn]\x1B[39m"
-read -n 1
-echo ""
-if [[ $REPLY =~ [yY] ]]; then
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install
-fi
