@@ -2306,9 +2306,9 @@
 					<key>notes</key>
 					<string>Github commit</string>
 					<key>precision</key>
-					<string>normal</string>
+					<string>very_low</string>
 					<key>regex</key>
-					<string>(\w{12})</string>
+					<string>(\w{7})</string>
 				</dict>
 			</array>
 			<key>Sync Title</key>
@@ -3941,9 +3941,9 @@
 					<key>notes</key>
 					<string>Github commit</string>
 					<key>precision</key>
-					<string>normal</string>
+					<string>very_low</string>
 					<key>regex</key>
-					<string>(\w{12})</string>
+					<string>(\w{7})</string>
 				</dict>
 			</array>
 			<key>Sync Title</key>
