@@ -7,3 +7,4 @@ home/.config/menus/
 home/.config/hookdeck/
 home/.config/auth0/
 home/.config/**/*.token
+home/.config/trias.json
