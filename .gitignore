@@ -8,3 +8,6 @@ home/.config/hookdeck/
 home/.config/auth0/
 home/.config/**/*.token
 home/.config/trias.json
+home/.config/gcloud/
+home/.config/github-copilot/
+home/.config/git/
