@@ -22,3 +22,4 @@ alias vimsnake="bash ~/.zshell/vimsnake.sh"
 
 # Dirs
 alias wad="cd ~/src/github.com/monzo/wearedev/"
+alias anl="cd ~/src/github.com/monzo/analytics/"

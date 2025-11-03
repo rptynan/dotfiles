@@ -36,4 +36,4 @@ zle -N fancy-ctrl-z
 bindkey '^Z'          fancy-ctrl-z
 
 # undo this from zprezto
-unalias sl
+# unalias sl
