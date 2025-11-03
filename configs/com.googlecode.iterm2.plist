@@ -717,6 +717,8 @@
 	<string>13D0B6D7-FFB1-4AE4-BC02-413F9E819BB7</string>
 	<key>DoubleClickPerformsSmartSelection</key>
 	<true/>
+	<key>GlobalKeyMap</key>
+	<dict/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
@@ -2186,14 +2188,6 @@
 			<array>
 				<dict>
 					<key>notes</key>
-					<string>Word bounded by whitespace</string>
-					<key>precision</key>
-					<string>low</string>
-					<key>regex</key>
-					<string>\S+</string>
-				</dict>
-				<dict>
-					<key>notes</key>
 					<string>C++ namespace::identifier</string>
 					<key>precision</key>
 					<string>normal</string>
@@ -2207,22 +2201,6 @@
 					<string>normal</string>
 					<key>regex</key>
 					<string>\~?/?([[:letter:][:number:]._-]+/+)+[[:letter:][:number:]._-]+/?</string>
-				</dict>
-				<dict>
-					<key>notes</key>
-					<string>Quoted string</string>
-					<key>precision</key>
-					<string>normal</string>
-					<key>regex</key>
-					<string>@?"(?:[^"\\]|\\.)*"</string>
-				</dict>
-				<dict>
-					<key>notes</key>
-					<string>Java/Python include paths</string>
-					<key>precision</key>
-					<string>normal</string>
-					<key>regex</key>
-					<string>([[:letter:][:number:]._]+\.)+[[:letter:][:number:]._]+</string>
 				</dict>
 				<dict>
 					<key>notes</key>
@@ -2309,6 +2287,14 @@
 					<string>very_low</string>
 					<key>regex</key>
 					<string>(\w{7})</string>
+				</dict>
+				<dict>
+					<key>notes</key>
+					<string>Words/Identifiers bounded by non-word chars</string>
+					<key>precision</key>
+					<string>high</string>
+					<key>regex</key>
+					<string>\w+</string>
 				</dict>
 			</array>
 			<key>Sync Title</key>
@@ -3821,14 +3807,6 @@
 			<array>
 				<dict>
 					<key>notes</key>
-					<string>Word bounded by whitespace</string>
-					<key>precision</key>
-					<string>low</string>
-					<key>regex</key>
-					<string>\S+</string>
-				</dict>
-				<dict>
-					<key>notes</key>
 					<string>C++ namespace::identifier</string>
 					<key>precision</key>
 					<string>normal</string>
@@ -3842,22 +3820,6 @@
 					<string>normal</string>
 					<key>regex</key>
 					<string>\~?/?([[:letter:][:number:]._-]+/+)+[[:letter:][:number:]._-]+/?</string>
-				</dict>
-				<dict>
-					<key>notes</key>
-					<string>Quoted string</string>
-					<key>precision</key>
-					<string>normal</string>
-					<key>regex</key>
-					<string>@?"(?:[^"\\]|\\.)*"</string>
-				</dict>
-				<dict>
-					<key>notes</key>
-					<string>Java/Python include paths</string>
-					<key>precision</key>
-					<string>normal</string>
-					<key>regex</key>
-					<string>([[:letter:][:number:]._]+\.)+[[:letter:][:number:]._]+</string>
 				</dict>
 				<dict>
 					<key>notes</key>
@@ -3944,6 +3906,14 @@
 					<string>very_low</string>
 					<key>regex</key>
 					<string>(\w{7})</string>
+				</dict>
+				<dict>
+					<key>notes</key>
+					<string>Words/Identifiers bounded by non-word chars</string>
+					<key>precision</key>
+					<string>high</string>
+					<key>regex</key>
+					<string>\w+</string>
 				</dict>
 			</array>
 			<key>Sync Title</key>
@@ -4035,6 +4005,8 @@
 	</dict>
 	<key>Print In Black And White</key>
 	<true/>
+	<key>ShowFullScreenTabBar</key>
+	<false/>
 	<key>Snippets</key>
 	<array>
 		<dict>
