@@ -7,9 +7,9 @@ if not status_ok then
 	return
 end
 
--- Stolen from kickstart
-vim.opt.guifont = "Hack Nerd Font:h12" -- Replace with your desired Nerd Font and size
+vim.opt.guifont = "Hack Nerd Font:h12"
 vim.g.have_nerd_font = true
+vim.opt.winborder = "rounded"
 
 vim.diagnostic.config({
 	severity_sort = true,
@@ -25,15 +25,8 @@ vim.diagnostic.config({
 	} or {},
 	virtual_text = {
 		source = "if_many",
+		-- Only show virtual text for errors
+		severity = { min = vim.diagnostic.severity.ERROR },
 		spacing = 2,
-		format = function(diagnostic)
-			local diagnostic_message = {
-				[vim.diagnostic.severity.ERROR] = diagnostic.message,
-				[vim.diagnostic.severity.WARN] = diagnostic.message,
-				[vim.diagnostic.severity.INFO] = diagnostic.message,
-				[vim.diagnostic.severity.HINT] = diagnostic.message,
-			}
-			return diagnostic_message[diagnostic.severity]
-		end,
 	},
 })

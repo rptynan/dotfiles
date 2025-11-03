@@ -1,6 +1,8 @@
 return {
 	-- Used for above git fzfs
 	{ "tpope/vim-fugitive" },
+	-- For :GBrowse (above) to open the current file on GitHub/GitLab/Bitbucket
+	{ "tpope/vim-rhubarb" },
 	-- cs'", cs({, ysiw", etc
 	{ "tpope/vim-surround" },
 	-- gc for easy comment/uncommenting.

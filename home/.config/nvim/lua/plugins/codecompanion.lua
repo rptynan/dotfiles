@@ -4,9 +4,11 @@ return {
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
 		"j-hui/fidget.nvim",
+		"github/copilot.vim",
 	},
 	init = function()
 		require("plugins.codecompanion.fidget-spinner"):init()
+		require("plugins.codecompanion.copilot"):init()
 	end,
 	config = function()
 		require("codecompanion").setup({
@@ -21,14 +23,24 @@ return {
 			},
 			strategies = {
 				chat = {
-					adapter = "openai",
+					adapter = "copilot",
 				},
 				inline = {
-					adapter = "openai",
+					adapter = "copilot",
 				},
 			},
 			adapters = {
 				http = {
+					copilot = function()
+						return require("codecompanion.adapters").extend("copilot", {
+							opts = {},
+							schema = {
+								model = {
+									default = "claude-sonnet-4",
+								},
+							},
+						})
+					end,
 					openai = function()
 						return require("codecompanion.adapters").extend("openai", {
 							opts = {

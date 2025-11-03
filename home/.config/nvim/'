@@ -10,30 +10,6 @@ return {
 	},
 	opts = {},
 	config = function()
-		-- Create augroup for auto-formatting (used by both null-ls and ruff)
-		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
-		-- Reusable auto-format function
-		local function setup_auto_format(client, bufnr, with_organize_imports)
-			if client.supports_method("textDocument/formatting") then
-				vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-				vim.api.nvim_create_autocmd("BufWritePre", {
-					group = augroup,
-					buffer = bufnr,
-					callback = function()
-						-- Optionally organize imports first (for ruff)
-						if with_organize_imports and client.supports_method("textDocument/codeAction") then
-							vim.lsp.buf.code_action({
-								context = { only = { "source.organizeImports" } },
-								apply = true,
-							})
-						end
-						vim.lsp.buf.format({ async = false })
-					end,
-				})
-			end
-		end
-
 		require("mason-lspconfig").setup({
 			automatic_enable = true,
 			ensure_installed = {
@@ -41,7 +17,7 @@ return {
 				"lua_ls",
 				"gopls",
 				"ruff",
-				"pyright",
+				-- "pyright"
 			},
 		})
 
@@ -65,10 +41,21 @@ return {
 				null_ls.builtins.formatting.clang_format.with({
 					filetypes = { "proto" },
 				}),
+				-- require("none-ls.formatting.ruff"),
+				-- require("none-ls.diagnostics.ruff"),
 			},
-			-- Use the reusable function
+			-- auto-format on save
 			on_attach = function(client, bufnr)
-				setup_auto_format(client, bufnr, false) -- No import organizing for null-ls
+				if client.supports_method("textDocument/formatting") then
+					vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						group = augroup,
+						buffer = bufnr,
+						callback = function()
+							vim.lsp.buf.format({ async = false })
+						end,
+					})
+				end
 			end,
 		})
 
@@ -87,42 +74,32 @@ return {
 
 		-- Python
 		vim.lsp.config("ruff", {
-			settings = {
-				ruff = {
-					-- Have not been able to get these to work, so ignoring some of them in pyright instead
-					-- select = { "F", "E", "W", "I" },
-					-- ignore = { "E501", "F821" },
-				},
-			},
-			-- Use the reusable function with import organizing
-			on_attach = function(client, bufnr)
-				setup_auto_format(client, bufnr, true) -- Enable import organizing for ruff
-			end,
-		})
-		vim.lsp.config("pyright", {
-			settings = {
-				pyright = {
-					-- Using Ruff's import organizer
-					disableOrganizeImports = true,
-				},
-				python = {
-					analysis = {
-						autoSearchPaths = true,
-						useLibraryCodeForTypes = true,
-						diagnosticMode = "openFilesOnly",
-						autoImportCompletion = true,
-						diagnosticSeverityOverrides = {
-							-- Disabling a bunch of these as they overlap with ruff, although this isn't all of them
-							reportUnusedImport = "none",
-							reportUnusedVariable = "none",
-							reportUndefinedVariable = "none",
-							reportUnboundVariable = "none",
-							reportUnusedExpression = "none",
-						},
+			init_options = {
+				settings = {
+					ruff = {
+						enable = true,
+						extendSelect = { "I", "E" }, -- Include all errors and warnings
+						select = { "F", "E", "W" }, -- Include all errors and warnings
+						ignore = { "E501" }, -- Ignore line length errors
+					},
+					args = {
+						logLevel = "debug",
 					},
 				},
 			},
 		})
+		-- vim.lsp.config("pyright", {
+		-- 	settings = {
+		-- 		python = {
+		-- 			analysis = {
+		-- 				autoSearchPaths = true,
+		-- 				useLibraryCodeForTypes = true,
+		-- 				diagnosticMode = "openFilesOnly",
+		-- 				autoImportCompletion = true,
+		-- 			},
+		-- 		},
+		-- 	},
+		-- })
 
 		-- Go
 		vim.lsp.config("gopls", {
