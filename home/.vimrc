@@ -193,9 +193,9 @@ NeoBundle 'sheerun/vim-polyglot'
 " Disabled when I moved to nvim
 " source ~/.fzf/plugin/fzf.vim    " Needed by fzf.vim
 " LLM plugin
-NeoBundle 'madox2/vim-ai'
+" NeoBundle 'madox2/vim-ai'
 " let's try this
-NeoBundle 'puremourning/vimspector'
+" NeoBundle 'puremourning/vimspector'
 
 
 

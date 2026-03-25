@@ -12,8 +12,9 @@ fh() {
 }
 
 # Directory history jumping
-fcd() {
-  eval "cd $(dirs -v | cut -f2 | fzf)"
+# Relies on dirstack.zsh being run first
+fd() {
+  eval "cd $(cat "$DIRSTACKFILE" | cut -f2 | fzf)"
 }
 
 
