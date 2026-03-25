@@ -11,6 +11,7 @@ set t_Co=256
 set colorcolumn=120     " Highlight textwidth column
 set textwidth=120       " Set this to 120
 autocmd FileType python setlocal colorcolumn=88 textwidth=88
+autocmd FileType go setlocal colorcolumn=88,120 textwidth=120
 set relativenumber      " So good, just so good, try it
 set number              " Doesn't replace relnum
 set cursorline          " make current line stand out

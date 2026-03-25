@@ -16,9 +16,7 @@ return {
 				debounce = 300,
 				throttle = 300,
 			},
-			--completion = {
-			--	--autocomplete = false,
-			--},
+			preselect = cmp.PreselectMode.None,
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
 				{

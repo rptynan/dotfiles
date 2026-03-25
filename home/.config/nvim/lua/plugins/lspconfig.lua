@@ -42,6 +42,7 @@ return {
 				"gopls",
 				"ruff",
 				"pyright",
+				"yamlls",
 			},
 		})
 
@@ -60,7 +61,8 @@ return {
 		null_ls.setup({
 			sources = {
 				null_ls.builtins.formatting.stylua,
-				null_ls.builtins.formatting.prettier,
+				-- Disabled this because it's formatting yaml (in a way I don't like)
+				-- null_ls.builtins.formatting.prettier,
 				null_ls.builtins.formatting.gofumpt,
 				null_ls.builtins.formatting.clang_format.with({
 					filetypes = { "proto" },
@@ -126,8 +128,14 @@ return {
 
 		-- Go
 		vim.lsp.config("gopls", {
-			-- Run gopls with Go modules disabled.
-			cmd = { "env", "GO111MODULE=off", "gopls", "-remote=auto" },
+			-- Run gopls with Go modules disabled only for wearedev.
+			cmd = (function()
+				local cwd = vim.fn.getcwd()
+				if string.find(cwd, "wearedev") then
+					return { "env", "GO111MODULE=off", "gopls", "-remote=auto" }
+				end
+				return { "gopls", "-remote=auto" }
+			end)(),
 
 			settings = {
 				gopls = {
@@ -150,7 +158,12 @@ return {
 			-- Special root dir finding function for wearedev
 			root_dir = function(bufnr, cb)
 				local buffer_filepath = vim.api.nvim_buf_get_name(bufnr)
-				local root_markers = { "main.go", "README.md", "go.mod", "LICENSE" } -- Add more as needed
+				local root_markers = {
+					--"main.go",
+					"README.md",
+					"go.mod",
+					"LICENSE",
+				} -- Add more as needed
 				local root_directory = lspconfig.util.root_pattern(root_markers)(buffer_filepath)
 				cb(root_directory)
 			end,
