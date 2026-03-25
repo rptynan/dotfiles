@@ -11,10 +11,9 @@ return {
 	config = function()
 		local cmp = require("cmp")
 		cmp.setup({
-			performance = {
-				-- Can be quite distracting to have completions firing up constantly, so trying to turn them down a bit.
-				debounce = 300,
-				throttle = 300,
+			completion = {
+				-- Only show completions when manually triggered (C-n).
+				autocomplete = false,
 			},
 			preselect = cmp.PreselectMode.None,
 			sources = cmp.config.sources({
@@ -30,14 +29,26 @@ return {
 				},
 			}),
 			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
+				completion = {
+					border = "rounded",
+					winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
+				},
+				documentation = {
+					border = "rounded",
+					winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
+				},
 			},
 			mapping = cmp.mapping.preset.insert({
 				-- C-n and C-p work for selecting options. Scroll in docs window.
 				["<C-u>"] = cmp.mapping.scroll_docs(-4),
 				["<C-d>"] = cmp.mapping.scroll_docs(4),
 				["<C-space>"] = cmp.mapping.confirm({ select = true }),
+			}),
+		})
+
+		cmp.setup.filetype("codecompanion", {
+			sources = cmp.config.sources({
+				{ name = "nvim_lsp" },
 			}),
 		})
 
