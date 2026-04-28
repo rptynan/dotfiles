@@ -46,12 +46,6 @@ return {
 			}),
 		})
 
-		cmp.setup.filetype("codecompanion", {
-			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
-			}),
-		})
-
 		local autopairs = require("nvim-autopairs")
 		autopairs.setup({})
 	end,

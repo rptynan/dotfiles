@@ -43,6 +43,7 @@ return {
 				"ruff",
 				"pyright",
 				"yamlls",
+				"buf_ls",
 			},
 		})
 
@@ -190,12 +191,19 @@ return {
 				},
 			},
 		})
-		-- Have not got this to work yet
-		-- vim.lsp.config("protols", {
-		-- 	cmd = { "protols" },
-		-- 	filetypes = { "proto" },
-		-- 	root_markers = { ".git" },
-		-- }) -- protobuf
+		--protobuf, experimental
+		vim.lsp.config("buf_ls", {
+			root_dir = function(bufnr, cb)
+				local buffer_filepath = vim.api.nvim_buf_get_name(bufnr)
+				local root_markers = { "buf.yaml", "buf.gen.yaml", ".git" }
+				local root_directory = lspconfig.util.root_pattern(root_markers)(buffer_filepath)
+				cb(root_directory)
+			end,
+			handlers = {
+				-- Disable diagnostics as it has no knowledge of Monzo's custom protos, just suing for goto-def, etc
+				["textDocument/publishDiagnostics"] = function() end,
+			},
+		})
 
 		local bufopts = { noremap = true, silent = true, buffer = bufnr }
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
