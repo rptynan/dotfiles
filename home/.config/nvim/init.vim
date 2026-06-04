@@ -110,6 +110,9 @@ nnoremap <leader>q :vertical resize 124<CR>
 "" Easier ctr-w =
 nnoremap <leader>= :horizontal wincmd =<CR>
 
+"" Helpers for three-way merges
+command! -range=% DiffLeft <line1>,<line2>diffget //2
+command! -range=% DiffRight <line1>,<line2>diffget //3
 
 
 "" Zooming panes
@@ -153,6 +156,15 @@ function! DarkMode()
 endfunction
 command! -range -nargs=0 DarkMode call DarkMode()
 
+"" Helpers for dealing with json
+function! FormatJSON() range
+    execute a:firstline . ',' . a:lastline . '!jq "."'
+endfunction
+function! CompactJSON() range
+    execute a:firstline . ',' . a:lastline . '!jq -c "."'
+endfunction
+command! -range=% -nargs=0 FormatJSON <line1>,<line2>call FormatJSON()
+command! -range=% -nargs=0 CompactJSON <line1>,<line2>call CompactJSON()
 
 
 """ Syntax options
