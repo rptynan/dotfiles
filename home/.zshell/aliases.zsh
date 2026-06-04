@@ -16,6 +16,7 @@ alias setie="setxkbmap -layout 'ie'"
 alias setde="setxkbmap -layout 'de'"
 alias sshs="eval $(ssh-agent) ssh-add"
 alias c="clear"
+alias k="kubectl"
 
 # Fun
 alias vimsnake="bash ~/.zshell/vimsnake.sh"

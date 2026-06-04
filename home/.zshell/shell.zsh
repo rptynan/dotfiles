@@ -6,8 +6,8 @@ bindkey -v
 bindkey -M vicmd v edit-command-line
 
 # Set vim as editor
-export EDITOR="vim"
-export VISUAL="vim"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # Enable 256 Colours
 # export TERM="xterm-256color" # Not for nvim
