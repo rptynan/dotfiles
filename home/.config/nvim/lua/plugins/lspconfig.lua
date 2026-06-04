@@ -65,9 +65,10 @@ return {
 				-- Disabled this because it's formatting yaml (in a way I don't like)
 				-- null_ls.builtins.formatting.prettier,
 				null_ls.builtins.formatting.gofumpt,
-				null_ls.builtins.formatting.clang_format.with({
-					filetypes = { "proto" },
-				}),
+				-- This isn't respecting local settings, disabling for now
+				-- null_ls.builtins.formatting.clang_format.with({
+				-- 	filetypes = { "proto" },
+				-- }),
 			},
 			-- Use the reusable function
 			on_attach = function(client, bufnr)

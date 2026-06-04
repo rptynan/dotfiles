@@ -36,7 +36,9 @@ return {
 							opts = {},
 							schema = {
 								model = {
-									default = "claude-sonnet-4",
+									-- default = "claude-sonnet-4.6",
+									-- Trying this out as I mostly use this for quick queries now
+									default = "claude-haiku-4.5",
 								},
 							},
 						})
