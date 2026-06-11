@@ -15,6 +15,7 @@ export VISUAL="nvim"
 # History
 export HISTSIZE=100000
 export SAVEHIST=$HISTSIZE
+setopt SHARE_HISTORY
 
 # Run at start
 if (( $+commands[fortune] )); then
