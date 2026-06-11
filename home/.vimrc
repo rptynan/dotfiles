@@ -430,7 +430,8 @@ let g:vim_ai_chat = {
 
 """ Needs to go at the end
 let g:solarized_termcolors=256
-colorscheme solarized
+" Now I'm mostly using nvim, this is broken and we'll fix it later.
+" colorscheme solarized
 highlight ALEVirtualTextError ctermfg=DarkMagenta
 highlight ALEVirtualTextWarning ctermfg=Black
 highlight ALEError ctermfg=LightMagenta
