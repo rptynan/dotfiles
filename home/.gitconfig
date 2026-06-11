@@ -1,6 +1,6 @@
 [user]
-  name = Richard Tynan
-  email = richard@tynan.me
+	name = Richard Tynan
+	email = richard@tynan.me
 [credential]
   helper = cache --timeout=3600
 [color]
@@ -13,7 +13,7 @@
   tool = vimdiff
 [core]
   excludesfile = ~/.global_gitignore
-  hooksPath = ~/.githooks/
+  ; hooksPath = ~/.githooks/
 [push]
 	default = current
 [pull]
@@ -44,3 +44,9 @@
   f = "!gitf() { git switch -c \"rptynan/$1\"; }; gitf"
 [init]
   defaultBranch = master
+[difftool "nvim_difftool"]
+	cmd = nvim -c \"packadd nvim.difftool\" -d \"$LOCAL\" \"$REMOTE\"
+[diff]
+  tool = nvim_difftool
+[include]
+  path = ~/.gitconfig.local
