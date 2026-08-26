@@ -3,3 +3,4 @@
 *.pyc
 scratch.*
 scratch/
+**/.claude/settings.local.json
