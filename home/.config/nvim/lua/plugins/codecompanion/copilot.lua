@@ -18,7 +18,7 @@ function M:init()
 	vim.keymap.set("i", "<C-]>", "<Plug>(copilot-next)")
 	-- Can't use C-[ for prev because of conflicting with escape.
 
-	-- Use Ctrl-' to accept word by word.
+	-- Use Ctrl-t to accept word by word.
 	vim.keymap.set("i", "<C-t>", "<Plug>(copilot-accept-word)")
 end
 
