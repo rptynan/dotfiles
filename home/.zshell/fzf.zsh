@@ -6,10 +6,9 @@ source <(fzf --zsh)
 # Enable multi-mode
 export FZF_DEFAULT_OPTS="-m"
 
-# Loads history into zsh prompt
-fh() {
-  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
-}
+# Display options
+export FZF_COMPLETION_OPTS='--style=full'
+export FZF_CTRL_R_OPTS='--style=full'
 
 # Directory history jumping
 # Relies on dirstack.zsh being run first
@@ -22,13 +21,12 @@ fd() {
 __list_git_branches_timewise(){
   git reflog -n10000 --pretty='%cr|%gs' --grep-reflog='checkout: moving' HEAD | {
     seen=":"
-    git_dir="$(git rev-parse --git-dir)"
     while read line; do
       date="${line%%|*}"
       branch="${line##* }"
       if ! [[ $seen == *:"${branch}":* ]]; then
         seen="${seen}${branch}:"
-        if [ -f "${git_dir}/refs/heads/${branch}" ]; then
+        if git show-ref --verify --quiet "refs/heads/${branch}"; then
           printf "%s\t%s\n" "$date" "$branch"
         fi
       fi

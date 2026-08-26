@@ -95,3 +95,19 @@ wx() {
   lastcmd=$(fc -ln -1)
   watchman-make -p "**/*.$1" -r "$lastcmd"
 }
+
+function git-delete-merged-branches() {
+    git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" --sort=-committerdate | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse "$branch^{tree}") -p $mergeBase -m _)) == "-"* ]] &&  git branch -D $branch; done
+}
+
+function git-delete-all-branches() {
+  local branch reply
+  for branch in ${(f)"$(git for-each-ref --sort=committerdate --format='%(refname:short)' refs/heads/)"}; do
+    [[ $branch == $(git symbolic-ref --short HEAD) ]] && continue
+    read "reply?Delete '$branch' ($(git log -1 --format='%cr' $branch))? [y/N/q] "
+    case $reply in
+      [Yy]*) git branch -D $branch ;;
+      [Qq]*) return ;;
+    esac
+  done
+}
