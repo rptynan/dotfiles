@@ -114,6 +114,9 @@ nnoremap <leader>= :horizontal wincmd =<CR>
 command! -range=% DiffLeft <line1>,<line2>diffget //2
 command! -range=% DiffRight <line1>,<line2>diffget //3
 
+"" Helper to yank current file
+command! -range=% YankFilePath let @+ = expand("%")
+
 
 "" Zooming panes
 function! WinZoomToggle() abort

@@ -206,6 +206,20 @@ return {
 			},
 		})
 
+		-- yaml
+		vim.lsp.config("yamlls", {
+			settings = {
+				yaml = {
+					format = {
+						enable = true,
+					},
+					schemas = {
+						[vim.fn.expand("~") .. "/src/github.com/monzo/wearedev/libraries/cassandra/schema/schema.bundled.generated.json"] = "*/config/schema.yml",
+					},
+				},
+			},
+		})
+
 		local bufopts = { noremap = true, silent = true, buffer = bufnr }
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
