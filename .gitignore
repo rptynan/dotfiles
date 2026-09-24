@@ -11,3 +11,5 @@ home/.config/trias.json
 home/.config/gcloud/
 home/.config/github-copilot/
 home/.config/git/
+**/*\.local
+**/*\.local\.*
