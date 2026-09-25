@@ -45,7 +45,6 @@ set backspace=2         " TODO why?
 set history=10000       " Larger history
 set tabpagemax=100      " More tabs
 set showcmd             " Show number of lines selected in visual mode
-set spell               " I need spellcheck
 set tags=tags;~         " Search for tags up to home directory
 
 

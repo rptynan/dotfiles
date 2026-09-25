@@ -94,3 +94,5 @@ But there are built-ins too:
         insert highlighted thing for example)
 Fun tip: If you record a macro for a letter(e.g. qw) it's stored in that
 register. And you can edit it to edit the macro.
+
+zg to add word to spellcheck list.
