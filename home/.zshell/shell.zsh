@@ -16,6 +16,8 @@ export VISUAL="nvim"
 export HISTSIZE=100000
 export SAVEHIST=$HISTSIZE
 setopt SHARE_HISTORY
+# zprezto sets this by default and I hate it
+unsetopt HIST_IGNORE_SPACE
 
 # Run at start
 if (( $+commands[fortune] )); then
