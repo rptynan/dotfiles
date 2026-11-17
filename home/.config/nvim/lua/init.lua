@@ -1,5 +1,5 @@
-require("config.lazy")
 require("config.spell")
+require("config.lazy")
 
 local colorscheme = "tokyonight"
 
