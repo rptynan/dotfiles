@@ -111,3 +111,29 @@ function git-delete-all-branches() {
     esac
   done
 }
+
+function fresh() {
+  local repo
+  repo=$(basename "$(git rev-parse --show-toplevel)") || return
+  echo "📥 Fetching origin/master..."
+  git fetch origin master || { echo "❌ Fetch failed"; return 1; }
+  echo "🔀 Resetting $repo to origin/master..."
+  git checkout -B "$repo" origin/master || { echo "❌ Checkout failed"; return 1; }
+  if [[ -n $TMUX ]]; then
+    echo "🏷️  Renaming tmux window to $repo(fresh)..."
+    tmux rename-window -t "$TMUX_PANE" "$repo(fresh)"
+  fi
+  echo "✅ $repo is at $(git rev-parse --short HEAD)"
+}
+
+function claude-rename-tmux() {
+  [[ -n $TMUX && -n $1 ]] || return 0
+
+  local info auto cur
+  info=$(tmux display-message -p -t "$TMUX_PANE" '#{automatic-rename}|#{window_name}')
+  autorename_on=${info%%|*}
+  cur_name=${info#*|}
+  if [[ $autorename_on == (1|on) || $cur_name == *\(fresh\)* ]]; then
+    tmux rename-window -t "$TMUX_PANE" "$*"
+  fi
+}

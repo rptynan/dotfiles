@@ -17,6 +17,9 @@ alias setde="setxkbmap -layout 'de'"
 alias sshs="eval $(ssh-agent) ssh-add"
 alias c="clear"
 alias k="kubectl"
+alias ask="claude -p --model=sonnet"
+alias trn='tmux rename-window -t "$TMUX_PANE"'
+alias tmv='tmux swap-window -t'
 
 # Fun
 alias vimsnake="bash ~/.zshell/vimsnake.sh"
